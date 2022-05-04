@@ -34,7 +34,7 @@
   height: 275px;
   width: fit-content;
   background-size: cover;
-  background-image: url(./images/books-falling.png);
+  background-image: url(../assets/images/books-falling.png);
 }
 .heading{
   width: fit-content;
