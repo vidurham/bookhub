@@ -1,0 +1,75 @@
+:root{
+  --white: #FFFFFF;
+  --trans-white: #ffffff83;
+  --gray: #ebecec;
+}
+/* LOGIN PAGE */
+/* Utility classes */
+.bg-white {
+  background-color: var(--white);
+}
+.bg-gray{
+  background-color: var(--gray);
+}
+
+.fs-4rem {
+  font-size: 4rem;
+}
+.fs-3rem {
+  font-size: 3rem;
+}
+.fs-p8rem {
+  font-size: 0.8rem;
+}
+
+.flex-col-center{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* END utility classes */
+
+/* header content */
+.books-div{
+  height: 275px;
+  width: fit-content;
+  background-size: cover;
+  background-image: url(./images/books-falling.png);
+}
+.heading{
+  width: fit-content;
+}
+.login-desc{
+  font-weight:500;
+  background-color: var(--trans-white);
+}
+/* END header content */
+/* END LOGIN PAGE */
+
+/* MEDIA QUERIES */
+/* styles take affect from the screen size defined 
+*  and up from it */
+@media (min-width: 992px){
+  /* main div that holds all login content */
+  .login-container{
+    margin-top: 120px;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  /* header content */
+  .books-div{
+    height: 550px;
+    width: 600px;
+    margin-right: 8%;
+  }
+  .header-pos{
+    margin-left: 60%;
+    margin-bottom: 17%;
+  }
+  .login-desc{
+    border: none;
+    background-color: #FFFFFF;
+  }
+  /* END header content */
+}
