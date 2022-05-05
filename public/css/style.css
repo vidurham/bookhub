@@ -46,6 +46,42 @@
 /* END header content */
 /* END LOGIN PAGE */
 
+/* HOME/FEED PAGE */
+/* nav bar */
+.nav-bar{
+  min-height: 60px; 
+  z-index: 5;
+}
+.search-height{
+  min-height: 40px;
+}
+
+/* discussions*/
+.discussion:hover {
+  opacity: 0.8;
+}
+.pointer {
+  cursor: pointer;
+}
+
+/* comment accordions */
+.post__comment .accordion-button::after {
+  margin-left: 0 ;
+  display: none ;
+}
+.post__comment .accordion-button:hover {
+  background: transparent;
+  border-color: transparent;
+}
+.post__comment .accordion-button:not(.collapsed) {
+  background: transparent;
+}
+.post__comment .accordion-button:not(.collapsed) {
+  box-shadow: none;
+}
+/* END of comment accordions */
+/* END OF HOME/FEED PAGE */
+
 /* MEDIA QUERIES */
 /* styles take affect from the screen size defined 
 *  and up from it */
