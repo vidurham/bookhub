@@ -16,7 +16,15 @@ router.get('/login', (req, res) => {
 });
 
 router.get('/signup', (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect('/');
+    return;
+  }
   res.render('signup');
+});
+
+router.get('/user-feed', (req, res) => {
+  res.render('user-feed');
 });
 
 module.exports = router;
