@@ -3,6 +3,10 @@
   --trans-white: #ffffff83;
   --gray: #ebecec;
 }
+::placeholder{
+  color: #198754;
+}
+
 /* LOGIN PAGE */
 /* Utility classes */
 .bg-white {
@@ -29,7 +33,7 @@
 }
 /* END utility classes */
 
-/* header content */
+/* content left of login form */
 .books-div{
   height: 275px;
   width: fit-content;
@@ -43,28 +47,84 @@
   font-weight:500;
   background-color: var(--trans-white);
 }
-/* END header content */
 /* END LOGIN PAGE */
 
 /* HOME/FEED PAGE */
-/* nav bar */
-.nav-bar{
-  min-height: 60px; 
-  z-index: 5;
-}
-.search-height{
-  min-height: 40px;
-}
-
-/* discussions*/
-.discussion:hover {
-  opacity: 0.8;
+/* Utility classes */
+.profile-picture{
+  width: 38px; 
+  height: 38px; 
+  object-fit: cover;
 }
 .pointer {
   cursor: pointer;
 }
+/* END of Utility classes */
 
-/* comment accordions */
+.nav-bar{
+  min-height: 60px; 
+  z-index: 5;
+}
+
+/* search bar */
+.search-size{
+  min-height: 40px;
+}
+.search-shape{
+  border-radius: 500px;
+}
+.input-size{
+  width: 115px;
+}
+
+/* user menu (far right of nav bar) */
+.user-dropdown-button{
+  width: 38px;
+  height: 38px;
+}
+.user-menu{
+  width: 20em;
+}
+
+/* content sizing */
+.left-bar-sizing{
+  max-width: 250px; 
+  z-index: 4;
+}
+.feed-sizing{
+  padding-top: 56px; 
+  max-width: 680px;
+}
+.likes-sizing{
+  height: 50px; 
+  z-index: 4;
+}
+
+/* discussions*/
+.discussion-div{
+  width: 6em; 
+  height: 190px;
+}
+.discussion{
+  width: 6em; 
+  min-height: 190px; 
+  object-fit: cover;
+}
+.discussion:hover {
+  opacity: 0.8;
+}
+
+.create-post-modal{
+  width: 38px;
+  height: 38px;
+}
+
+.comments{
+  width: 38px;
+  height: 38px;
+  object-fit: cover;
+}
+/* comment accordion for posts */
 .post__comment .accordion-button::after {
   margin-left: 0 ;
   display: none ;
@@ -86,6 +146,7 @@
 /* styles take affect from the screen size defined 
 *  and up from it */
 @media (min-width: 992px){
+  /* LOGIN PAGE */
   /* main div that holds all login content */
   .login-container{
     margin-top: 120px;
@@ -93,7 +154,7 @@
     justify-content: center;
   }
 
-  /* header content */
+  /* content left of login form*/
   .books-div{
     height: 550px;
     width: 600px;
@@ -107,5 +168,14 @@
     border: none;
     background-color: #FFFFFF;
   }
-  /* END header content */
+  /* END OF LOGIN PAGE */
+
+  /* HOME/FEED PAGE */
+  .search-size{
+    min-width: 230px;
+  }
+  .input-size{
+    width: 175px;
+  }
+  /* END OF HOME/FEED PAGE */
 }

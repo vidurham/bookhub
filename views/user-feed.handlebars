@@ -11,169 +11,54 @@
     <link rel="stylesheet" href="/css/style.css" />
     <title>BookHub-Homepage</title>
   </head>
-  <body class="feed-background bg-gray postion-relative">
+  <body class="feed-background bg-gray">
     <!-- +++++++++ Nav bar +++++++++ -->
     <nav class="d-flex align-items-center fixed-top shadow bg-white nav-bar">
       <div class="container-fluid">
-        <div class="row align-items-center">
+        <div class="row">
           <!-- Search Container -->
           <section class="col d-flex align-items-center">
             <!-- BookHub logo -->
             <i class="fa-solid fa-book-bookmark text-success fs-3rem"></i>
             <!-- search bar -->
-            <div class="input-group ms-2" type="button">
-              <!-- mobile -->
-              <span class="input-group-prepend d-sm-none" id="searchMenu" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
-                <div class="input-group-text bg-warning border-0 rounded-circle search-height">
-                  <i class="fas fa-search text-success"></i>
-                </div>
-              </span>
-              <!-- desktop -->
-              <span class="input-group-prepend d-sm-block d-none" id="searchMenu" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
-                <div class="input-group-text bg-warning border-0 rounded-pill search-height">
-                  <i class="fas fa-search me-2 text-success"></i>
-                  <p class="m-0 fs-p8rem fw-bold text-success">Search BookHub</p>
-                </div>
-              </span>
-              <!-- search menu -->
-              <ul class="dropdown-menu overflow-auto border-0 shadow p-3" aria-labelledby="searchMenu" style="width: 20em; max-height: 600px">
-                <!-- search input -->
-                <li>
-                  <input type="text" class=" border-0 rounded-pill dropdown-item bg-warning " placeholder="Search BookHub..." autofocus/>
-                </li>
-              </ul>
+            <div class="input-group ms-2">
+              <div class="input-group-text bg-warning border-warning search-shape search-size">
+                <i class="fas fa-search me-2 text-success"></i>
+                <input id="searchBar" type="text" 
+                class="border-0 bg-warning d-block m-0 fs-p8rem 
+                fw-bold text-success input-size" 
+                placeholder="Search BookHub"></input>
+              </div>
             </div>
           </section>
-          <!-- menus -->
-          <div class="col d-flex align-items-center justify-content-end">
-            <!-- avatar -->
-            <div
-              class="align-items-center justify-content-center d-none d-sm-flex"
-            >
-              <img
-                src="/assets/images/nerd-emoji.png"
-                class="rounded-circle me-2"
-                alt="avatar"
-                style="width: 38px; height: 38px; object-fit: cover"
-              />
+          <!-- profile-items -->
+          <section class="col d-flex align-items-center justify-content-end">
+            <!-- profile-picture -->
+            <div class="align-items-center justify-content-center d-none d-sm-flex">
+              <img src="/assets/images/nerd-emoji.png" class="profile-picture rounded-circle me-2"
+                alt="profile-picture" />
               <p class="m-0">John Doe</p>
             </div>
-            <!-- secondary menu -->
-            <div
-              class="
-                rounded-circle
-                p-1
-                bg-white
-                d-flex
-                align-items-center
-                justify-content-center
-                mx-2
-              "
-              style="width: 38px; height: 38px"
-              type="button"
-              id="secondMenu"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-              data-bs-auto-close="outside"
-            >
+            <!-- user-menu -->
+            <div class="rounded-circle p-1 bg-gray d-flex 
+              align-items-center justify-content-center mx-2 user-dropdown-button"
+              type="button" id="secondMenu" data-bs-toggle="dropdown"
+              aria-expanded="false" data-bs-auto-close="outside">
               <i class="fas fa-caret-down"></i>
             </div>
-            <!-- secondary menu dd -->
-            <ul
-              class="dropdown-menu border-0 shadow p-3"
-              aria-labelledby="secondMenu"
-              style="width: 23em"
-            >
-              <!-- avatar -->
+            <!-- user-menu dropdown -->
+            <ul class="dropdown-menu user-menu border-0 shadow p-3" aria-labelledby="secondMenu">
+              <!-- Profile -->
               <li class="dropdown-item p-1 rounded d-flex" type="button">
-                <img
-                  src="/assets/images/nerd-emoji.png"
-                  alt="avatar"
-                  class="rounded-circle me-2"
-                  style="width: 45px; height: 45px; object-fit: cover"
-                />
+                <img src="/assets/images/nerd-emoji.png" alt="profile-picture" class="profile-picture rounded-circle me-2"/>
                 <div>
                   <p class="m-0">John Doe</p>
                   <p class="m-0 text-muted">Your profile</p>
                 </div>
               </li>
-              <!-- 4 -->
-              <li class="dropdown-item p-1 my-3 rounded" type="button">
-                <ul class="navbar-nav">
-                  <li class="nav-item">
-                    <a
-                      href="#"
-                      class="d-flex text-decoration-none text-dark"
-                    >
-                      <i class="fas fa-cog bg-white p-2 rounded-circle"></i>
-                      <div
-                        class="
-                          ms-3
-                          d-flex
-                          justify-content-between
-                          align-items-center
-                          w-100
-                        "
-                      >
-                        <p class="m-0">Log Out</p>
-                      </div>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-            <!-- end -->
-          </div>
-        </div>
-      </div>
-    </nav>
-    <!-- ++++++++++ Main ++++++++++ -->
-    <div class="container-fluid">
-      <div class="row justify-content-evenly">
-        <!-- ++++++++++ Left side ++++++++++ -->
-        <div class="col-12 col-lg-3">
-          <div
-            class="d-none d-lg-block h-100 fixed-top overflow-hidden"
-            style="max-width: 360px; width: 100%; z-index: 4"
-          >
-            <ul
-              class="navbar-nav mt-4 ms-3 d-flex flex-column pb-5 mb-5"
-              style="padding-top: 56px"
-            >
-              <!-- top -->
-              <!-- avatar -->
-              <li class="dropdown-item p-1 rounded">
-                <a
-                  href="#"
-                  class="
-                    d-flex
-                    align-items-center
-                    text-decoration-none text-dark
-                  "
-                >
-                  <div class="p-2">
-                    <img
-                      src="/assets/images/nerd-emoji.png"
-                      alt="avatar"
-                      class="rounded-circle me-2"
-                      style="width: 38px; height: 38px; object-fit: cover"
-                    />
-                  </div>
-                  <div>
-                    <p class="m-0">John Doe</p>
-                  </div>
-                </a>
-              </li>
-              <!-- top 1 -->
-              <li class="dropdown-item p-1 rounded">
-                <a
-                  href="#"
-                  class="
-                    d-flex
-                    align-items-center
-                    text-decoration-none text-dark
-                  "
-                >
+              <!-- Friends -->
+              <li class="dropdown-item p-1 rounded" type="button">
+                <a href="#" class="d-flex align-items-center text-decoration-none text-dark">
                   <div class="p-2">
                     <i class="fa-solid fa-user-group"></i>
                   </div>
@@ -182,16 +67,9 @@
                   </div>
                 </a>
               </li>
-              <!-- top 2 -->
-              <li class="dropdown-item p-1 rounded">
-                <a
-                  href="#"
-                  class="
-                    d-flex
-                    align-items-center
-                    text-decoration-none text-dark
-                  "
-                >
+              <!-- Book Clubs -->
+              <li class="dropdown-item p-1 rounded" type="button">
+                <a href="#" class="d-flex align-items-center text-decoration-none text-dark">
                   <div class="p-2">
                     <i class="fa-solid fa-book"></i>
                   </div>
@@ -200,168 +78,127 @@
                   </div>
                 </a>
               </li>
-              <!-- top 3 -->
+              <!-- Log out -->
+              <li class="dropdown-item p-1 rounded" type="button">
+                <a href="./index.html" class="d-flex align-items-center text-decoration-none text-dark">
+                  <div class="p-2">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                  </div>
+                  <div>
+                    <p class="m-0">Log Out</p>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </section>
+        </div>
+      </div>
+    </nav>
+    <!-- ++++++++++ Main ++++++++++ -->
+    <div class="container-fluid">
+      <div class="row justify-content-evenly">
+        <!-- ++++++++++ Left side ++++++++++ -->
+        <div class="col-12 col-lg-3">
+          <div class="left-bar-sizing d-none d-lg-block h-100 w-100 fixed-top overflow-hidden">
+            <ul class="navbar-nav mt-4 ms-3 d-flex flex-column pb-5 mb-5 pt-5">
+              <!-- profile-picture -->
+              <li class="dropdown-item p-1 rounded">
+                <a href="#" class="d-flex align-items-center text-decoration-none text-dark">
+                  <div class="p-2">
+                    <img src="/assets/images/nerd-emoji.png" alt="profile-picture" class="rounded-circle me-2 profile-picture"/>
+                  </div>
+                  <div>
+                    <p class="m-0">John Doe</p>
+                  </div>
+                </a>
+              </li>
+              <!-- Friends -->
+              <li class="dropdown-item p-1 rounded">
+                <a href="#" class="d-flex align-items-center text-decoration-none text-dark">
+                  <div class="p-2">
+                    <i class="fa-solid fa-user-group"></i>
+                  </div>
+                  <div>
+                    <p class="m-0">Friends</p>
+                  </div>
+                </a>
+              </li>
+              <!-- Book Clubs -->
+              <li class="dropdown-item p-1 rounded">
+                <a href="#" class="d-flex align-items-center text-decoration-none text-dark">
+                  <div class="p-2">
+                    <i class="fa-solid fa-book"></i>
+                  </div>
+                  <div>
+                    <p class="m-0">Book Clubs</p>
+                  </div>
+                </a>
+              </li>
           </div>
         </div>
         <!-- ++++++++++ Feed ++++++++++ -->
         <div class="col-12 col-lg-6 pb-5">
-          <div
-            class="d-flex flex-column justify-content-center w-100 mx-auto"
-            style="padding-top: 56px; max-width: 680px"
-          >
+          <div class="feed-sizing d-flex flex-column justify-content-center w-100 mx-auto">
             <!-- discussions -->
             <div class="mt-5 d-flex justify-content-between position-relative">
-              <!-- s 1 -->
-              <div
-                class="mx-1 bg-white rounded discussion"
-                type="button"
-                style="width: 6em; height: 190px"
-              >
-                <img
-                  src="/assets/images/book-stack.png"
-                  class="card-img-top"
-                  alt="discussion posts"
-                  style="min-height: 125px; object-fit: cover"
-                />
-                <div
-                  class="
-                    d-flex
-                    align-items-center
-                    justify-content-center
-                    position-relative
-                  "
-                  style="min-height: 65px"
-                >
+              <!-- create a discussion button -->
+              <div class=" mx-1 bg-white rounded discussion create-discussion" type="button">
+                <img src="/assets/images/book-stack.png" class="card-img-top" alt="discussion posts"
+                  style="min-height: 125px; object-fit: cover"/>
+                <div class="d-flex align-items-center justify-content-center position-relative"
+                  style="min-height: 65px">
                   <p class="mb-0 text-center fs-p8rem fw-bold">Create A Discussion</p>
-                  <div
-                    class="position-absolute top-0 start-50 translate-middle"
-                  >
-                    <i
-                      class="
-                        fas
-                        fa-plus-circle
-                        fs-3
-                        text-success
-                        bg-white
-                        p-1
-                        rounded-circle
-                      "
-                    ></i>
+                  <div class="position-absolute top-0 start-50 translate-middle">
+                    <i class="fas fa-plus-circle fs-3 text-success bg-white p-1 rounded-circle"></i>
                   </div>
                 </div>
               </div>
-              <!-- s 2 -->
-              <div
-                class="rounded mx-1 discussion"
-                type="button"
-                style="width: 6em; height: 190px"
-              >
-                <img
-                  src="/assets/images/history-book.png"
-                  class="card-img-top rounded"
-                  alt="discussion posts"
-                  style="min-height: 190px; object-fit: cover"
-                />
+              <!-- discussion 2 -->
+              <div class="rounded mx-1 discussion" type="button">
+                <img src="/assets/images/history-book.png" class="card-img-top rounded"
+                  alt="discussion posts" style="min-height: 190px; object-fit: cover"/>
               </div>
-              <!-- s 3 -->
-              <div
-                class="rounded mx-1 discussion"
-                type="button"
-                style="width: 6em; height: 190px"
-              >
-                <img
-                  src="/assets/images/stephen-king-memoir.png"
-                  class="card-img-top rounded"
-                  alt="discussion posts"
-                  style="min-height: 190px; object-fit: cover"
-                />
+              <!-- discussion 3 -->
+              <div class="rounded mx-1 discussion" type="button">
+                <img src="/assets/images/stephen-king-memoir.png" class="card-img-top rounded" 
+                alt="discussion posts" style="min-height: 190px; object-fit: cover"/>
               </div>
-              <!-- s 4 -->
-              <div
-                class="rounded mx-1 discussion"
-                type="button"
-                style="width: 6em; height: 190px"
-              >
-                <img
-                  src="/assets/images/coders.png"
-                  class="card-img-top rounded"
-                  alt="discussion posts"
-                  style="min-height: 190px; object-fit: cover"
-                />
+              <!-- discussion 4 -->
+              <div class="rounded mx-1 discussion" type="button">
+                <img src="/assets/images/coders.png" class="card-img-top rounded"
+                alt="discussion posts" style="min-height: 190px; object-fit: cover"/>
               </div>
-              <!-- s 5 -->
-              <div
-                class="d-none d-lg-block rounded mx-1 discussion"
-                type="button"
-                style="width: 6em; height: 190px"
-              >
-                <img
-                  src="/assets/images/canterbury-tales.png"
-                  class="card-img-top rounded"
-                  alt="discussion posts"
-                  style="min-height: 190px; object-fit: cover"
-                />
+              <!-- discussion 5 -->
+              <div class="d-none d-lg-block rounded mx-1 discussion" type="button">
+                <img src="/assets/images/canterbury-tales.png" class="card-img-top rounded" 
+                alt="discussion posts" style="min-height: 190px; object-fit: cover"/>
               </div>
-              <!-- s 6 -->
-              <div
-                class="d-none d-lg-block rounded mx-1 discussion"
-                type="button"
-                style="width: 6em; height: 190px"
-              >
-                <img
-                  src="/assets/images/deep-work.png"
-                  class="card-img-top rounded"
-                  alt="discussion posts"
-                  style="min-height: 190px; object-fit: cover"
-                />
+              <!-- discussion 6 -->
+              <div class="d-none d-lg-block rounded mx-1 discussion" type="button">
+                <img src="/assets/images/deep-work.png" class="card-img-top rounded"
+                  alt="discussion posts" style="min-height: 190px; object-fit: cover"/>
               </div>
             </div>
             <!-- create post -->
             <div class="bg-white p-3 mt-3 rounded border shadow">
-              <!-- avatar -->
+              <!-- profile-picture -->
               <div class="d-flex" type="button">
                 <div class="p-1">
-                  <img
-                    src="/assets/images/nerd-emoji.png"
-                    alt="avatar"
-                    class="rounded-circle me-2"
-                    style="width: 38px; height: 38px; object-fit: cover"
-                  />
+                  <img src="/assets/images/nerd-emoji.png" alt="profile-picture" class="rounded-circle me-2 profile-picture"/>
                 </div>
-                <input
-                  type="text"
-                  class="form-control rounded-pill border-0 bg-white pointer"
-                  disabled
-                  placeholder="Share your thoughts on a book..."
-                  data-bs-toggle="modal"
-                  data-bs-target="#createModal"
-                />
+                <input type="text" class="form-control border-0 bg-white pointer"
+                  disabled placeholder="Share your thoughts on a book."
+                  data-bs-toggle="modal" data-bs-target="#postModal"/>
               </div>
-              <!-- bootstrap modal -->
-              <div
-                class="modal fade"
-                id="createModal"
-                tabindex="-1"
-                aria-labelledby="createModalLabel"
-                aria-hidden="true"
-                data-bs-backdrop="false"
-              >
+              <!-- create post modal -->
+              <div class="modal fade" id="postModal" tabindex="-1"
+                aria-labelledby="createModalLabel" aria-hidden="true" data-bs-backdrop="false">
                 <div class="modal-dialog modal-dialog-centered">
                   <div class="modal-content">
                     <!-- head -->
                     <div class="modal-header align-items-center">
-                      <h5
-                        class="text-dark text-center w-100 m-0"
-                        id="exampleModalLabel"
-                      >
-                        Create Post
-                      </h5>
-                      <button
-                        type="button"
-                        class="btn-close"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"
-                      ></button>
+                      <h5 class="text-dark text-center w-100 m-0">Create Post</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <!-- body -->
                     <div class="modal-body">
@@ -370,16 +207,8 @@
                           <!-- name -->
                           <div class="d-flex align-items-center">
                             <div class="p-2">
-                              <img
-                                src="/assets/images/nerd-emoji.png"
-                                alt="from fb"
-                                class="rounded-circle"
-                                style="
-                                  width: 38px;
-                                  height: 38px;
-                                  object-fit: cover;
-                                "
-                              />
+                              <img src="/assets/images/nerd-emoji.png" alt="from fb" 
+                              class="create-post-modal rounded-circle"/>
                             </div>
                             <div>
                               <p class="m-0 fw-bold">John Doe</p>
@@ -387,15 +216,10 @@
                           </div>
                           <!-- text -->
                           <div>
-                            <textarea
-                              cols="30"
-                              rows="5"
-                              class="form-control border-0"
-                            ></textarea>
+                            <textarea cols="30" rows="5" class="form-control border-0"></textarea>
                           </div>
                         </div>
                       </div>
-
                       <!-- end -->
                     </div>
                     <!-- footer -->
@@ -408,223 +232,112 @@
                 </div>
               </div>
             </div>
-            <!-- ++++ FEED POST ++++ -->
+            <!-- ++++ post ++++ -->
             <div class="bg-white p-4 rounded shadow mt-3">
-              <!-- author -->
+              <!-- user -->
               <div class="d-flex justify-content-between">
-                <!-- avatar -->
+                <!-- profile-picture -->
                 <div class="d-flex">
-                  <img
-                    src="/assets/images/nerd-emoji.png"
-                    alt="avatar"
-                    class="rounded-circle me-2"
-                    style="width: 38px; height: 38px; object-fit: cover"
-                  />
+                  <img src="/assets/images/nerd-emoji.png" alt="profile-picture" class="rounded-circle me-2 profile-picture"/>
                   <div>
                     <p class="m-0 fw-bold">John Doe</p>
                     <span class="text-muted fs-p8rem">May 6 at 8:47 am</span>
                   </div>
                 </div>
-                <!-- edit -->
-                <i
-                  class="fas fa-ellipsis-h"
-                  type="button"
-                  id="post1Menu"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                ></i>
-                <!-- edit menu -->
-                <ul
-                  class="dropdown-menu border-0 shadow"
-                  aria-labelledby="post1Menu"
-                >
+                <!-- edit post dots -->
+                <i class="fas fa-ellipsis-h" type="button" id="postMenu"
+                  data-bs-toggle="dropdown" aria-expanded="false"></i>
+                <!-- dropdown -->
+                <ul class="dropdown-menu border-0 shadow" aria-labelledby="postMenu">
+                  <!-- edit -->
                   <li class="d-flex align-items-center">
-                    <a
-                      class="
-                        dropdown-item
-                        d-flex
-                        justify-content-around
-                        align-items-center
-                        fs-p8rem
-                      "
-                      href="#"
-                    >
-                      Edit Post</a
-                    >
+                    <a class="dropdown-item d-flex justify-content-around
+                    align-items-center fs-p8rem" href="#"> Edit Post</a>
                   </li>
+                  <!-- delete -->
                   <li class="d-flex align-items-center">
-                    <a
-                      class="
-                        dropdown-item
-                        d-flex
-                        justify-content-around
-                        align-items-center
-                        fs-p8rem
-                      "
-                      href="#"
-                    >
-                      Delete Post</a
-                    >
+                    <a class="dropdown-item d-flex justify-content-around
+                    align-items-center fs-p8rem" href="#">Delete Post</a>
                   </li>
                 </ul>
               </div>
               <!-- post content -->
               <div class="mt-3">
                 <!-- content -->
-                <div class="">
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing 
+                <div>
+                  <p> Lorem ipsum dolor sit amet consectetur adipisicing 
                     elit. Repellat officia perspiciatis ullam iusto voluptatum delectus illo ducimus provident error at hic doloremque 
                     eum commodi impedit, rerum repudiandae facere illum. Architecto.
                   </p>
-                  <img
-                    src="/assets/images/coders.png"
-                    alt="post image"
-                    class="img-fluid rounded"
-                  />
+                  <img src="/assets/images/coders.png" alt="post image"
+                    class="img-fluid rounded"/>
                 </div>
-                <!-- likes & comments -->
+                <!-- likes/comments -->
                 <div class="post__comment mt-3 position-relative">
                   <!-- likes -->
-                  <div
-                    class="
-                      d-flex
-                      align-items-center
-                      top-0
-                      start-0
-                      position-absolute
-                    "
-                    style="height: 50px; z-index: 5"
-                  >
+                  <div class="d-flex align-items-center top-0 start-0 
+                  position-absolute likes-sizing">
                     <div class="me-2">
                       <i class="text-success fas fa-thumbs-up pointer"></i>
                     </div>
                     <p class="m-0 text-muted fs-p8rem pointer">7 likes</p>
                   </div>
-                  <!-- comments start-->
+                  <!-- comments -->
                   <div class="accordion" id="accordionExample">
                     <div class="accordion-item border-0">
-                      <!-- comment collapse -->
-                      <h2 class="accordion-header" id="headingTwo">
+                      <!-- comment accordion closed -->
+                      <h2 class="accordion-header" id="commentsAccordion">
                         <div
-                          class="
-                            accordion-button
-                            collapsed
-                            pointer
-                            d-flex
-                            justify-content-end
-                          "
-                          data-bs-toggle="collapse"
-                          data-bs-target="#collapsePost1"
-                          aria-expanded="false"
-                          aria-controls="collapsePost1"
-                        >
-                          <p class="m-0">(#num) Comments</p>
+                          class="accordion-button collapsed pointer d-flex justify-content-end"
+                          data-bs-toggle="collapse" data-bs-target="#commentsDiv"
+                          aria-expanded="false" aria-controls="commentsDiv">
+                          <p class="m-0">3 Comments</p>
                         </div>
                       </h2>
                       <hr />
                       <!-- comment & like bar -->
                       <div class="d-flex justify-content-around">
-                        <div
-                          class="
-                            dropdown-item
-                            rounded
-                            d-flex
-                            justify-content-center
-                            align-items-center
-                            pointer
-                            text-muted
-                            p-1
-                          "
-                        >
+                        <div class="dropdown-item rounded d-flex justify-content-center
+                          align-items-center pointer text-muted p-1">
                           <i class="fas fa-thumbs-up me-3"></i>
                           <p class="m-0">Like</p>
                         </div>
                         <div
-                          class="
-                            dropdown-item
-                            rounded
-                            d-flex
-                            justify-content-center
-                            align-items-center
-                            pointer
-                            text-muted
-                            p-1
-                          "
-                          data-bs-toggle="collapse"
-                          data-bs-target="#collapsePost1"
-                          aria-expanded="false"
-                          aria-controls="collapsePost1"
-                        >
+                          class="dropdown-item rounded d-flex justify-content-center
+                          align-items-center pointer text-muted p-1"
+                          data-bs-toggle="collapse" data-bs-target="#commentsDiv"
+                          aria-expanded="false" aria-controls="commentsDiv">
                           <i class="fas fa-comment-alt me-3"></i>
                           <p class="m-0">Comment</p>
                         </div>
                       </div>
-                      <!-- comment expand -->
-                      <div
-                        id="collapsePost1"
-                        class="accordion-collapse collapse"
-                        aria-labelledby="headingTwo"
+                      <!-- comment accordion open -->
+                      <div id="commentsDiv" class="accordion-collapse collapse"
+                        aria-labelledby="commentsAccordion"
                         data-bs-parent="#accordionExample"
                       >
                         <hr />
                         <div class="accordion-body">
                           <!-- comment 1 -->
                           <div class="d-flex align-items-center my-1">
-                            <!-- avatar -->
-                            <img
-                              src="/assets/images/nerd-emoji.png"
-                              alt="avatar"
-                              class="rounded-circle me-2"
-                              style="
-                                width: 38px;
-                                height: 38px;
-                                object-fit: cover;
-                              "
-                            />
-                            <!-- comment text -->
+                            <!-- profile-picture -->
+                            <img src="/assets/images/nerd-emoji.png" alt="profile-picture" 
+                              class="rounded-circle me-2 comments"/>
+                            <!-- text content div -->
                             <div class="p-3 rounded comment__input w-100">
-                              <!-- comment menu of author -->
                               <div class="d-flex justify-content-end">
                                 <!-- icon -->
-                                <i
-                                  class="fas fa-ellipsis-h text-blue pointer"
-                                  id="post1CommentMenuButton"
-                                  data-bs-toggle="dropdown"
-                                  aria-expanded="false"
-                                ></i>
-                                <!-- menu -->
-                                <ul
-                                  class="dropdown-menu border-0 shadow"
-                                  aria-labelledby="post1CommentMenuButton"
-                                >
+                                <i class="fas fa-ellipsis-h text-blue pointer" id="commentEditMenu"
+                                  data-bs-toggle="dropdown" aria-expanded="false"></i>
+                                <!-- edit menu -->
+                                <ul class="dropdown-menu border-0 shadow" aria-labelledby="commentEditMenu" >
                                   <li class="d-flex align-items-center">
-                                    <a
-                                      class="
-                                        dropdown-item
-                                        d-flex
-                                        justify-content-around
-                                        align-items-center
-                                        fs-p8rem
-                                      "
-                                      href="#"
-                                    >
-                                      Edit Comment</a
-                                    >
+                                    <a class="dropdown-item d-flex justify-content-around
+                                        align-items-center fs-p8rem" href="#">Edit Comment</a>
                                   </li>
                                   <li class="d-flex align-items-center">
-                                    <a
-                                      class="
-                                        dropdown-item
-                                        d-flex
-                                        justify-content-around
-                                        align-items-center
-                                        fs-p8rem
-                                      "
-                                      href="#"
-                                    >
-                                      Delete Comment</a
-                                    >
+                                    <a class="dropdown-item d-flex justify-content-around
+                                        align-items-center fs-p8rem" href="#">Delete Comment</a>
                                   </li>
                                 </ul>
                               </div>
@@ -636,18 +349,10 @@
                           </div>
                           <!-- comment 2 -->
                           <div class="d-flex align-items-center my-1">
-                            <!-- avatar -->
-                            <img
-                              src="https://source.unsplash.com/random/2"
-                              alt="avatar"
-                              class="rounded-circle me-2"
-                              style="
-                                width: 38px;
-                                height: 38px;
-                                object-fit: cover;
-                              "
-                            />
-                            <!-- comment text -->
+                            <!-- profile-picture -->
+                            <img src="/assets/images/default-user-picture.png" alt="profile-picture"
+                              class="rounded-circle me-2 comments"/>
+                            <!-- text content div -->
                             <div class="p-3 rounded comment__input w-100">
                               <p class="fw-bold m-0">Jerry</p>
                               <p class="m-0 fs-p8rem bg-white p-2 rounded">
@@ -657,25 +362,14 @@
                           </div>
                           <!-- create comment -->
                           <form class="d-flex my-1">
-                            <!-- avatar -->
+                            <!-- profile-picture -->
                             <div>
-                              <img
-                                src="/assets/images/nerd-emoji.png"
-                                alt="avatar"
-                                class="rounded-circle me-2"
-                                style="
-                                  width: 38px;
-                                  height: 38px;
-                                  object-fit: cover;
-                                "
-                              />
+                              <img src="/assets/images/nerd-emoji.png" alt="profile-picture"
+                                class="rounded-circle me-2c comments"/>
                             </div>
                             <!-- input -->
-                            <input
-                              type="text"
-                              class="form-control border-0 rounded-pill bg-white"
-                              placeholder="Write a comment"
-                            />
+                            <input type="text"  placeholder="Write a comment" 
+                            class="form-control border-0 rounded-pill bg-white"/>
                           </form>
                           <!-- end -->
                         </div>
@@ -692,5 +386,6 @@
         <div class="col-12 col-lg-3"></div>
       </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   </body>
 </html>
