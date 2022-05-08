@@ -179,3 +179,23 @@
   }
   /* END OF HOME/FEED PAGE */
 }
+
+
+/*User Profile Page*/
+.class h2{
+  font-size: 10px;
+}
+
+.social-media{
+  display:flex;
+  list-style: none;
+  justify-content:center;
+  padding:5px 1px 1px 1px;
+}
+
+.social-media li{
+  padding:5px;
+  color:#112cc7;
+  font-size:16px;
+  display: inline-block;
+}
