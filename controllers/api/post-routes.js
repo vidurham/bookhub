@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../../config/config');
-const { Post, User, Comment} = require('../../models');
+const { Post, User, Comment, Like} = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // get all users
@@ -110,6 +110,17 @@ router.put('/:id', withAuth, (req, res) => {
       console.log(err);
       res.status(500).json(err);
     });
+});
+
+router.put('/upvote', withAuth, (req, res) => {
+  if (req.session) {    
+      Post.upvote({...req.body, user_id: req.session.user_id}, { Like, Comment, User })
+          .then(updatedLikeData => res.json(updatedLikeData))
+          .catch(err => {
+              console.log(err);
+              res.status(400).json(err);
+          });
+  }
 });
 
 router.delete('/:id', withAuth, (req, res) => {
