@@ -1,14 +1,5 @@
-<head>
-    <!-- fontawesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous" />
-    <!-- stylesheet -->
-    <link rel="stylesheet" href="/css/style.css" />
-    <title>BookHub-Signup</title>
-  </head>
   <body class="d-flex flex-column min-vh-100 bg-white">
-    <!-- Login content container -->
+    <!-- Signup content container -->
     <main class="flex-col-center login-container">
       <!-- header -->
       <section class="d-flex align-items-end text-center books-div">
@@ -17,20 +8,21 @@
           <p class="fs-4 login-desc">&nbsp;Connect with millions of book lovers just like you!&nbsp;</p>
         </div>
       </section>
-      <!-- login form -->
+      <!-- signup form -->
       <section class="d-flex align-items-center mt-4">
-        <div class="p-3 rounded bg-gray input-group-lg shadow">
-          <input type="user" class="form-control my-3" placeholder="Username" id="user-signup" />
-          <input type="email" class="form-control my-3" placeholder="Email address" id="email-signup" />
+        <form class="p-3 rounded bg-gray input-group-lg shadow signup-form">
+          <input type="name" class="form-control my-3" placeholder="First Name" id="firstname-signup" />
+          <input type="name" class="form-control my-3" placeholder="Last Name" id="lastname-signup" />
+          <input type="email" class="form-control my-3" placeholder="Email" id="email-signup" />
           <input type="password" class="form-control my-3" placeholder="Password" id="password-signup" />
-          <a href="#"><button class="btn btn-warning w-100 my-3">Sign Up</button></a>
+          <button class="btn btn-warning w-100 my-3" type="submit">Sign Up</button>
           <hr />
           <div class="text-center my-4">
             <a href="/login">
-              <button class="btn btn-success btn-lg" type="button" href="login">Already Have an Account?</button>
+              <button class="btn btn-success btn-lg" type="button">Already Have an Account?</button>
             </a>
           </div>
-        </div>
+        </form>
       </section>
     </main>
     <!-- Footer -->
@@ -40,3 +32,4 @@
       </div>
     </footer>
 </body>
+<script src="/js/signup.js"></script>

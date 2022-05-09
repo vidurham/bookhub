@@ -1,6 +1,8 @@
 const router = require("express").Router();
-const { User } = require("../models/");
 const profileQuest = require('../data/profile-quest.json')
+const sequelize = require('../config/config');
+const { User, Comment, Vote, Post, Bookclub } = require("../models/");
+const withAuth = require("../utils/auth");
 
 // homepage
 router.get("/", (req, res) => {
@@ -25,7 +27,39 @@ router.get('/signup', (req, res) => {
 });
 
 router.get('/user-feed', (req, res) => {
-  res.render('user-feed');
+  Post.findAll({
+    attributes: [
+        'id',
+        'title',
+        'post_content',
+        'created_at'
+    ],
+    include: [
+        {
+            model: Comment,
+            attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+            include: {
+                model: User,
+                attributes: ['first_name', 'last_name']
+            }
+        },
+        {
+            model: User,
+            attributes: ['first_name', 'last_name']
+        }
+    ]
+})
+      .then(dbPostData => {
+        const posts = dbPostData.map(post => post.get({ plain: true }));
+        res.render('user-feed', { 
+            posts, 
+            loggedIn: req.session.loggedIn,
+        });
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
 });
 
 router.get('/user-profile', (req, res) => {
