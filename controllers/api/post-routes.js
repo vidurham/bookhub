@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../../config/config');
-const { Post, User, Comment, Like} = require('../../models');
+const { Post, User, Comment, Vote} = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // get all users
@@ -74,7 +74,7 @@ router.get('/:id', (req, res) => {
     });
 });
 
-router.post('/', withAuth, (req, res) => {
+router.post('/', (req, res) => {
   Post.create({
     title: req.body.title,
     post_content: req.body.post_content,
@@ -113,8 +113,8 @@ router.put('/:id', withAuth, (req, res) => {
 
 router.put('/upvote', withAuth, (req, res) => {
   if (req.session) {    
-      Post.upvote({...req.body, user_id: req.session.user_id}, { Like, Comment, User })
-          .then(updatedLikeData => res.json(updatedLikeData))
+      Post.upvote({...req.body, user_id: req.session.user_id}, { Vote, Comment, User })
+          .then(updatedVoteData => res.json(updatedVoteData))
           .catch(err => {
               console.log(err);
               res.status(400).json(err);

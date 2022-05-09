@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const sequelize = require('../config/config');
-const { User, Comment, Like, Post, Bookclub } = require("../models/");
+const { User, Comment, Vote, Post, Bookclub } = require("../models/");
+const withAuth = require("../utils/auth");
 
 // homepage
 router.get("/", (req, res) => {
@@ -30,7 +31,7 @@ router.get('/user-feed', (req, res) => {
         'id',
         'title',
         'post_content',
-        'created_at',
+        'created_at'
     ],
     include: [
         {
@@ -58,7 +59,7 @@ router.get('/user-feed', (req, res) => {
         console.log(err);
         res.status(500).json(err);
       });
-      });
+});
 
 router.get('/user-profile', (req, res) => {
   res.render('user-profile');
