@@ -31,4 +31,8 @@ router.get('/user-profile', (req, res) => {
   res.render('user-profile');
 });
 
+router.get('/profile-quest', (req, res) => {
+  res.render('profile-quest');
+});
+
 module.exports = router;

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Code Quiz</title>
+    <link href="/css/profile-quest.css" rel="stylesheet">
+    <script defer src="/js/profile-quest.js"></script>
+</head>
+<body>
+    <header>
+        <!-- Button reveals highscores from local storage -->
+        <button id="highscore-button" class="btn">view highscores here</button>
+        <!-- timer text content updated dynamically -->
+        <p id="timer" class="timer"></p>
+        <!-- starting message of quiz -->
+        <div id="start-message" class="start-message">
+            <h1>Almost there! lets set up your profile</h1>
+            <p>Answer a few questions to set up your profile</p>
+        </div>
+    </header>
+
+    <!-- end game form to log user initials for highscore data -->
+    <section id="log-initials" class="log-initials hide">
+        <!-- form container -->
+        <form id="initial-form">
+            <!-- label for text input and submit button -->
+            <label for="initials" id="initial-label">Enter your initials: 
+                <input id="initial-input" type="text" name="initials" placeholder="ex. ABC"/>
+                <button id="initial-submit" type="button" class="btn">Submit</button>
+            </label>
+        </form>
+    </section>
+
+    <!-- highscore display section -->
+    <section id="highscores" class="highscores hide">
+        <button id='back-to-quiz' type='button' class="btn hide">Back To Quiz</button>
+    </section>
+    
+    <!-- container holds quiz content -->
+    <section id="quiz-content-container" class="container">
+        <!-- question-container holds question/answers -->
+        <div id="question-container" class="hide">
+            <!-- question div holds question -->
+            <div id="question">Question</div>
+            <!-- answers will be displayed on buttons -->
+            <div id="answer-buttons" class="btn-grid"></div>
+        </div>
+        <!-- text content updated dynamically with feedback -->
+        <div id="feedback-container" class="hide"><p id="feedback-p" class="feedback"></p></div>
+        <!-- control buttons to start quiz and continue to the next question -->
+    </section>
+    <div id="controls" class="controls container">
+        <button type="button" id="start-btn" class="start-btn btn">Start</button>
+        <button type="button" id="next-btn" class="next-btn btn hide">Next</button>
+        <button type="button" id="home-btn" class="home-btn btn hide">Back To Start</button>
+    </div>
+</body>
+</html>
