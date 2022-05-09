@@ -12,13 +12,13 @@
     <script defer src="/js/profile-quest.js"></script>
 </head>
 <body>
-  <header class="container text-center mt-4">
+  <header class="container text-center mt-4 mt-sm-5">
     <h1 class="fs-1 fw-bold">Almost there! Lets set up your profile</h1>
   </header>
 
   <section class="container text-center mt-5">
     <h2 class ='text-success fw-bold border border-warning 
-    rounded-pill bg-warning shadow-sm'>
+    rounded-pill bg-warning shadow-sm mb-4'>
       Which genres of fiction do you like?
     </h2>
     {{#list profileQuest "fiction"}}
@@ -27,12 +27,18 @@
   </section>
   <section class="container text-center mt-5">
     <h2 class='text-success fw-bold border border-warning 
-    rounded-pill bg-warning shadow-sm'>
+    rounded-pill bg-warning shadow-sm mb-4'>
       Which genres of nonfiction do you like?
     </h2>
     {{#list profileQuest "nonFiction"}}
       {{nonFiction}}
     {{/list}}
   </section>
+  <div class="container d-flex justify-content-end mt-4 mb-5">
+  <a href="/user-feed">
+    <button class="btn btn-success btn-lg" type="button" href="login">Finish Profile Set Up</button>
+  </a>
+  </div>
+
 </body>
 </html>
