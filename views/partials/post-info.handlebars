@@ -89,6 +89,14 @@
                     {{#each comments as |comment|}}
                             {{> comment-info comment}}
                     {{/each}}
+                    <form class="comment-form">
+                        <div>
+                            <textarea cols="30" rows="5" class="form-control border-0" name="comment-body" placeholder="Insert Comment..."></textarea>
+                        </div>
+                        <div>
+                            <button type="submit" class="btn btn-success w-100">Add Comment</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -97,3 +105,4 @@
     </div>
     </div>
 </div>
+<script src="/js/comment.js"></script>
