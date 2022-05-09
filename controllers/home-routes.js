@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const { User } = require("../models/");
+const profileQuest = require('../data/profile-quest.json')
 
 // homepage
 router.get("/", (req, res) => {
@@ -32,7 +33,7 @@ router.get('/user-profile', (req, res) => {
 });
 
 router.get('/profile-quest', (req, res) => {
-  res.render('profile-quest');
+  res.render('profile-quest', {profileQuest});
 });
 
 module.exports = router;
