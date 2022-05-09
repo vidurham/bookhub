@@ -40,12 +40,12 @@ router.get('/:id', (req, res) => {
           attributes: ['id', 'title', 'post_content', 'user_id', 'created_at'],
           include: {
             model: User,
-            attributes: ['username']
+            attributes: ['first_name']
           }
         },
         {
           model: User,
-          attributes: ['username']
+          attributes: ['first_name']
         }
       ]
     })

@@ -1,0 +1,148 @@
+<!-- ++++ post ++++ -->
+<div class="bg-white p-4 rounded shadow mt-3">
+    <!-- user -->
+    <div class="d-flex justify-content-between">
+    <!-- profile-picture -->
+    <div class="d-flex">
+        <img src="/assets/images/nerd-emoji.png" alt="profile-picture" class="rounded-circle me-2 profile-picture"/>
+        <div>
+        <p class="m-0 fw-bold">{{user.first_name}} {{user.last_name}}</p>
+        <span class="text-muted fs-p8rem">May 6 at 8:47 am</span>
+        </div>
+    </div>
+    <!-- edit post dots -->
+    <i class="fas fa-ellipsis-h" type="button" id="postMenu"
+        data-bs-toggle="dropdown" aria-expanded="false"></i>
+    <!-- dropdown -->
+    <ul class="dropdown-menu border-0 shadow" aria-labelledby="postMenu">
+        <!-- edit -->
+        <li class="d-flex align-items-center">
+        <a class="dropdown-item d-flex justify-content-around
+        align-items-center fs-p8rem" href="#"> Edit Post</a>
+        </li>
+        <!-- delete -->
+        <li class="d-flex align-items-center">
+        <a class="dropdown-item d-flex justify-content-around
+        align-items-center fs-p8rem" href="#">Delete Post</a>
+        </li>
+    </ul>
+    </div>
+    <!-- post content -->
+    <div class="mt-3">
+    <!-- content -->
+    <div>
+        <p> Lorem ipsum dolor sit amet consectetur adipisicing 
+        elit. Repellat officia perspiciatis ullam iusto voluptatum delectus illo ducimus provident error at hic doloremque 
+        eum commodi impedit, rerum repudiandae facere illum. Architecto.
+        </p>
+        <img src="/assets/images/coders.png" alt="post image"
+        class="img-fluid rounded"/>
+    </div>
+    <!-- likes/comments -->
+    <div class="post__comment mt-3 position-relative">
+        <!-- likes -->
+        <div class="d-flex align-items-center top-0 start-0 
+        position-absolute likes-sizing">
+        <div class="me-2">
+            <i class="text-success fas fa-thumbs-up pointer"></i>
+        </div>
+        <p class="m-0 text-muted fs-p8rem pointer">7 likes</p>
+        </div>
+        <!-- comments -->
+        <div class="accordion" id="accordionExample">
+        <div class="accordion-item border-0">
+            <!-- comment accordion closed -->
+            <h2 class="accordion-header" id="commentsAccordion">
+            <div
+                class="accordion-button collapsed pointer d-flex justify-content-end"
+                data-bs-toggle="collapse" data-bs-target="#commentsDiv"
+                aria-expanded="false" aria-controls="commentsDiv">
+                <p class="m-0">3 Comments</p>
+            </div>
+            </h2>
+            <hr />
+            <!-- comment & like bar -->
+            <div class="d-flex justify-content-around">
+            <div class="dropdown-item rounded d-flex justify-content-center
+                align-items-center pointer text-muted p-1">
+                <i class="fas fa-thumbs-up me-3"></i>
+                <p class="m-0">Like</p>
+            </div>
+            <div
+                class="dropdown-item rounded d-flex justify-content-center
+                align-items-center pointer text-muted p-1"
+                data-bs-toggle="collapse" data-bs-target="#commentsDiv"
+                aria-expanded="false" aria-controls="commentsDiv">
+                <i class="fas fa-comment-alt me-3"></i>
+                <p class="m-0">Comment</p>
+            </div>
+            </div>
+            <!-- comment accordion open -->
+            <div id="commentsDiv" class="accordion-collapse collapse"
+            aria-labelledby="commentsAccordion"
+            data-bs-parent="#accordionExample"
+            >
+            <hr />
+            <div class="accordion-body">
+                <!-- comment 1 -->
+                <div class="d-flex align-items-center my-1">
+                <!-- profile-picture -->
+                <img src="/assets/images/nerd-emoji.png" alt="profile-picture" 
+                    class="rounded-circle me-2 comments"/>
+                <!-- text content div -->
+                <div class="p-3 rounded comment__input w-100">
+                    <div class="d-flex justify-content-end">
+                    <!-- icon -->
+                    <i class="fas fa-ellipsis-h text-blue pointer" id="commentEditMenu"
+                        data-bs-toggle="dropdown" aria-expanded="false"></i>
+                    <!-- edit menu -->
+                    <ul class="dropdown-menu border-0 shadow" aria-labelledby="commentEditMenu" >
+                        <li class="d-flex align-items-center">
+                        <a class="dropdown-item d-flex justify-content-around
+                            align-items-center fs-p8rem" href="#">Edit Comment</a>
+                        </li>
+                        <li class="d-flex align-items-center">
+                        <a class="dropdown-item d-flex justify-content-around
+                            align-items-center fs-p8rem" href="#">Delete Comment</a>
+                        </li>
+                    </ul>
+                    </div>
+                    <p class="fw-bold m-0">John Doe</p>
+                    <p class="m-0 fs-p8rem bg-white p-2 rounded">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    </p>
+                </div>
+                </div>
+                <!-- comment 2 -->
+                <div class="d-flex align-items-center my-1">
+                <!-- profile-picture -->
+                <img src="/assets/images/default-user-picture.png" alt="profile-picture"
+                    class="rounded-circle me-2 comments"/>
+                <!-- text content div -->
+                <div class="p-3 rounded comment__input w-100">
+                    <p class="fw-bold m-0">Jerry</p>
+                    <p class="m-0 fs-p8rem bg-white p-2 rounded">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    </p>
+                </div>
+                </div>
+                <!-- create comment -->
+                <form class="d-flex my-1">
+                <!-- profile-picture -->
+                <div>
+                    <img src="/assets/images/nerd-emoji.png" alt="profile-picture"
+                    class="rounded-circle me-2c comments"/>
+                </div>
+                <!-- input -->
+                <input type="text"  placeholder="Write a comment" 
+                class="form-control border-0 rounded-pill bg-white"/>
+                </form>
+                <!-- end -->
+            </div>
+            </div>
+        </div>
+        </div>
+        <!-- end -->
+    </div>
+    </div>
+</div>
