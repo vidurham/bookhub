@@ -51,7 +51,7 @@ router.get('/user-feed', (req, res) => {
         const posts = dbPostData.map(post => post.get({ plain: true }));
         res.render('user-feed', { 
             posts, 
-            loggedIn: req.session.loggedIn
+            loggedIn: req.session.loggedIn,
         });
       })
       .catch(err => {
