@@ -12,7 +12,7 @@ const loginFormHandler = async function (event) {
         password
       }),
         headers: { 'Content-Type': 'application/json' }
-      });
+    });
   
   if (response.ok) {
     document.location.replace('/user-feed');

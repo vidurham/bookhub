@@ -20,7 +20,7 @@ router.get('/login', (req, res) => {
 
 router.get('/signup', (req, res) => {
   if (req.session.loggedIn) {
-    res.redirect('/');
+    res.redirect('/user-feed');
     return;
   }
   res.render('signup');
@@ -51,9 +51,14 @@ router.get('/user-feed', (req, res) => {
 })
       .then(dbPostData => {
         const posts = dbPostData.map(post => post.get({ plain: true }));
+        console.log(posts);
+        console.log(req.session.first_name)
         res.render('user-feed', { 
             posts, 
             loggedIn: req.session.loggedIn,
+            id: req.session.user_id,
+            first_name: req.session.first_name,
+            last_name: req.session.last_name
         });
       })
       .catch(err => {
@@ -97,7 +102,10 @@ router.get('/user-feed/:id', (req, res) => {
         const post = dbPostData.get({ plain: true });
         res.render('single-post', { 
             post,
-            loggedIn: req.session.loggedIn
+            loggedIn: req.session.loggedIn,
+            id: req.session.user_id,
+            first_name: req.session.first_name,
+            last_name: req.session.last_name
         });
     })
     .catch(err => {
