@@ -14,8 +14,8 @@ module.exports = {
       out = out + 
       `<li class='list-group-item bg-gray'> 
         <div class='form-check'>
-          <input class='form-check-input ml-5' type='checkbox' value='' id='flexCheckDefault'>
-          <label class='form-check-label' for='flexCheckDefault'>
+          <input class='form-check-input ml-5' type='checkbox' name='${genreArr[i]}' id='genreCheck'>
+          <label class='form-check-label' for='genreCheck'>
           ${genreArr[i]} 
           </label>
         </div>
