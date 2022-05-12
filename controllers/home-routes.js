@@ -127,4 +127,8 @@ router.get('/profile-quest', (req, res) => {
   res.render('profile-quest', {profileQuest});
 });
 
+router.get('/bookclub-page', (req, res) => {
+  res.render('bookclub-page');
+});
+
 module.exports = router;
