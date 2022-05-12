@@ -115,11 +115,20 @@ router.get('/user-feed/:id', (req, res) => {
 });
 
 router.get('/user-profile', (req, res) => {
-  res.render('user-profile');
+  res.render('user-profile', { 
+    loggedIn: req.session.loggedIn,
+    id: req.session.user_id,
+    first_name: req.session.first_name,
+    last_name: req.session.last_name
+});
 });
 
 router.get('/profile-quest', (req, res) => {
   res.render('profile-quest', {profileQuest});
+});
+
+router.get('/bookclub-page', (req, res) => {
+  res.render('bookclub-page');
 });
 
 module.exports = router;
