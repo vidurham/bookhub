@@ -200,5 +200,9 @@
   display: inline-block;
 }
 
-
-
+/*Book Club Page */
+.carousel-inner img{
+  width: 50px;
+  height: 75px;
+  object-fit: contain;
+}
