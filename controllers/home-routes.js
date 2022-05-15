@@ -131,4 +131,8 @@ router.get('/bookclub-page', (req, res) => {
   res.render('bookclub-page');
 });
 
+router.get('/search-page', (req, res) => {
+    res.render('search-page')
+})
+
 module.exports = router;

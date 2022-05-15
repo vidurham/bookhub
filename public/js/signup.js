@@ -20,7 +20,7 @@ const signupFormHandler = async function (event) {
       });
 
       if (response.ok) {
-      document.location.replace('/user-feed');
+      document.location.replace('/profile-quest');
       } else {
       alert(response.statusText);
       }
