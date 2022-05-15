@@ -6,7 +6,11 @@ const withAuth = require("../utils/auth");
 
 // homepage
 router.get("/", (req, res) => {
-  res.render("home");
+  if (req.session.loggedIn) {
+    res.redirect('/user-feed');
+    return;
+  }
+  res.render('signup');
 });
 
 router.get('/login', (req, res) => {
@@ -16,14 +20,6 @@ router.get('/login', (req, res) => {
   }
 
   res.render('login');
-});
-
-router.get('/signup', (req, res) => {
-  if (req.session.loggedIn) {
-    res.redirect('/user-feed');
-    return;
-  }
-  res.render('signup');
 });
 
 router.get('/user-feed', (req, res) => {
