@@ -126,7 +126,21 @@ router.get('/profile-quest', (req, res) => {
 });
 
 router.get('/bookclub-page', (req, res) => {
-  res.render('bookclub-page');
+  res.render('bookclub-page', { 
+    loggedIn: req.session.loggedIn,
+    id: req.session.user_id,
+    first_name: req.session.first_name,
+    last_name: req.session.last_name
+});;
+});
+
+router.get('/friends', (req, res) => {
+  res.render('sample-friends', { 
+    loggedIn: req.session.loggedIn,
+    id: req.session.user_id,
+    first_name: req.session.first_name,
+    last_name: req.session.last_name
+});;
 });
 
 router.get('/search-page', (req, res) => {
@@ -153,7 +167,11 @@ router.get('/search-page', (req, res) => {
         bookArr.push(book);
       }
       res.render('search-page', {
-        book: bookArr
+        book: bookArr,
+        loggedIn: req.session.loggedIn,
+        id: req.session.user_id,
+        first_name: req.session.first_name,
+        last_name: req.session.last_name
       });
   });
 });
