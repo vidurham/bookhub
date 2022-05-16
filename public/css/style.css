@@ -206,3 +206,15 @@
   height: 75px;
   object-fit: contain;
 }
+
+.card{
+  flex: 0 1 22%;
+  text-align: center;
+  margin: 8px;
+  width: 15rem;
+}
+
+.card img {
+  height: 15vw;
+  width: 100%;
+}
