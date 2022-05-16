@@ -1,5 +1,8 @@
-[
-  {
-
+{
+  "accountData": {
+    "first_name": "Harry",
+    "last_name": "Doe",
+    "email": "email@email.com",
+    "password": "root"
   }
-]
+}

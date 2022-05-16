@@ -1,13 +1,10 @@
-const { response } = require("express");
-
 const finishSetUpBtn = document.querySelector("#finishSetUp");
 
 function collectChecks(event){
   event.preventDefault();
-  const genreArr = document.querySelectorAll('.form-check-input:checked')
+  const genreArr = document.querySelectorAll('.form-check-input:checked');
   const checkedArr = Array.from(genreArr).map(element => element.name);
-  console.log(checkedArr)
-
+  console.log(checkedArr);
   if (checkedArr.length > 0) {
     fetch('/api/users/profile-quest', {
     method: 'POST',
@@ -21,10 +18,10 @@ function collectChecks(event){
       } else {
         alert(response.statusText);
       }
-    })
+    });
   } else {
-    //document.location.replace('/user-profile');
-  }
-}
+    document.location.replace('/user-profile');
+  };
+};
 
 finishSetUpBtn.addEventListener("click", collectChecks);
