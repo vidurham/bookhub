@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { User, Comment, Post, Vote } = require('../../models');
 const { writeToJSON, validateAccount} = require('../../lib/account-data');
 const accountData = require('../../data/account-data');
+const { response } = require('express');
 
 // get all users
 router.get('/', (req, res) => {
@@ -57,26 +58,13 @@ router.get('/:id', (req, res) => {
 
 //POST /api/user/
 router.post('/', (req, res) => {
-  // write to file json account data
-  if (!validateAccount(req.body)) {
-    res.status(400).send("The account info is missing or not formatted correctly.");
-  } else {
-    writeToJSON(req.body);
-    res.json({message: "Account info submitted"});
-  }
-});
-
-// PUT /api/users/profile-quest
-router.post('/profile-quest', (req, res) => { 
-  // account data from sign up page
-  const { first_name, last_name, email, password } = accountData.accountData;
   // create code
   User.create({
-    first_name: first_name,
-    last_name: last_name,
-    email: email,
-    password: password,
-    book_genres: req.body.checkedArr
+    first_name: req.body.first_name,
+    last_name: req.body.last_name,
+    email: req.body.email,
+    password: req.body.password,
+    book_genres: ""
   })
     .then(dbUserData => {
       req.session.save(() => {
@@ -84,7 +72,7 @@ router.post('/profile-quest', (req, res) => {
         req.session.user_id = dbUserData.id;
         req.session.first_name = dbUserData.first_name;
         req.session.last_name = dbUserData.last_name;
-        req.session.book_genres = req.body.checkedArr;
+        req.session.book_genres = dbUserData.book_genres;
 
         res.json({user: dbUserData, message: "You are now logged in"});
       });
@@ -93,6 +81,21 @@ router.post('/profile-quest', (req, res) => {
       console.log(err);
       res.status(500).json(err);
     });
+});
+
+// PUT /api/users/profile-quest
+router.post('/profile-quest', (req, res) => { 
+  // account data from sign up page
+  User.update({book_genres: req.body.checkedArr.join(';')}, {
+    where: {
+      id: req.session.user_id
+    }
+  }).then(response => {
+    req.session.save(() => {
+      req.session.book_genres = req.body.checkedArr;
+      res.json({user: req.session.book_genres, message: "Your profile is now set up!"});
+    });
+  })
 });
 
 // POST /api/user/login
