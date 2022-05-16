@@ -26,13 +26,18 @@ module.exports = {
   },
 
   genres: (book_genres) => {
-    const genresArr = book_genres.split(';')
-    let out;
-    for (let i = 0; i < genresArr.length; i++){
-      out = `<span class="badge badge-pill badge-warning">${genreArr[i]}</span>`
+    let out = `<div class="card w-100">
+    <h5 class="card-header">Favorite Genres</h5> 
+    <div class="card-body">`
+
+
+    for (let i = 0; i < book_genres.length; i++){
+      console.log(book_genres[i]);
+      out = out + `<span class="badge badge-pill badge-success bg-success m-1">${book_genres[i]}</span>`
     };
 
-    return out
+    return out + `</div>
+              </div>`
   },
 
   format_date: date => {
