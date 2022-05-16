@@ -53,7 +53,7 @@ router.get('/:id', (req, res) => {
     });
 });
 
-//POST /api/user/
+//POST /api/users/
 router.post('/', (req, res) => {
   User.create({
     first_name: req.body.first_name,
@@ -77,7 +77,25 @@ router.post('/', (req, res) => {
     });
 });
 
-// POST /api/user/login
+// PUT /api/users/profile-quest
+router.put('/profile-quest', (req, res) => { 
+  // from profile-quest.js in public
+  console.log(req.body.checkedArr);
+  User.update({ book_genres: req.body.checkedArr })
+    .then(response => {
+      req.session.save(() => {
+        req.session.book_genres = req.body.checkedArr.join(';');
+        console.log(req.session.book_genres, req.body, "HELLLLLLLLLLLLLOOOO!!!!!");
+        res.json({user: response, message: "Profile updated!"});
+      });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+// POST /api/users/login
 router.post('/login', (req, res) => {
   User.findOne({
     where: {
@@ -108,7 +126,7 @@ router.post('/login', (req, res) => {
 });
 
 // log out route
-// POST /api/user/logout
+// POST /api/users/logout
 router.post('/logout', (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy(() => {
