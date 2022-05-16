@@ -1,5 +1,7 @@
 const router = require('express').Router();
 const { User, Comment, Post, Vote } = require('../../models');
+const { writeToJSON, validateAccount} = require('../../lib/account-data');
+const accountData = require('../../data/account-data');
 
 // get all users
 router.get('/', (req, res) => {
@@ -55,38 +57,35 @@ router.get('/:id', (req, res) => {
 
 //POST /api/users/
 router.post('/', (req, res) => {
+  // write to file json account data
+  if (!validateAccount(req.body)) {
+    res.status(400).send("The account info is missing or not formatted correctly.");
+  } else {
+    writeToJSON(req.body);
+  }
+  console.log(req.body);
+});
+
+// PUT /api/users/profile-quest
+router.post('/profile-quest', (req, res) => { 
+  // account data from sign up page
+  const { first_name, last_name, email, password } = accountData;
+  // create code
   User.create({
-    first_name: req.body.first_name,
-    last_name: req.body.last_name,
-    email: req.body.email,
-    password: req.body.password
+    first_name: first_name,
+    last_name: last_name,
+    email: email,
+    password: password,
+    book_genres: req.body.checkedArr
   })
     .then(dbUserData => {
       req.session.save(() => {
         req.session.loggedIn = true;
         req.session.user_id = dbUserData.id;
         req.session.first_name = dbUserData.first_name;
-        req.session.last_name = dbUserData.last_name
+        req.session.last_name = dbUserData.last_name;
 
         res.json({user: dbUserData, message: "You are now logged in"});
-      });
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    });
-});
-
-// PUT /api/users/profile-quest
-router.put('/profile-quest', (req, res) => { 
-  // from profile-quest.js in public
-  console.log(req.body.checkedArr);
-  User.update({ book_genres: req.body.checkedArr })
-    .then(response => {
-      req.session.save(() => {
-        req.session.book_genres = req.body.checkedArr.join(';');
-        console.log(req.session.book_genres, req.body, "HELLLLLLLLLLLLLOOOO!!!!!");
-        res.json({user: response, message: "Profile updated!"});
       });
     })
     .catch(err => {
