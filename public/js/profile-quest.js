@@ -15,7 +15,7 @@ function collectChecks(event){
     });
 
     if (response.ok) {
-    document.location.replace('/profile-quest');
+    document.location.replace('/user-profile');
     } else {
     alert(response.statusText);
     }
