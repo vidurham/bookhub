@@ -207,19 +207,19 @@
   object-fit: contain;
 }
 
-.card{
+.bookcard{
   flex: 0 1 22%;
   text-align: center;
   margin: 8px;
   width: 15rem;
 }
 
-.card img {
+.bookcard img {
   height: 15vw;
   width: 100%;
 }
 
-.card:hover {
+.bookcard:hover {
   border-color: limegreen;
   box-shadow: 0px 0px 10px 2px limegreen;
 }

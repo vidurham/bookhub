@@ -1,7 +1,5 @@
 const router = require('express').Router();
 const { User, Comment, Post, Vote } = require('../../models');
-const { writeToJSON, validateAccount} = require('../../lib/account-data');
-const accountData = require('../../data/account-data');
 
 // get all users
 router.get('/', (req, res) => {
@@ -55,36 +53,20 @@ router.get('/:id', (req, res) => {
     });
 });
 
-//POST /api/users/
+//POST /api/user/
 router.post('/', (req, res) => {
-  // write to file json account data
-  if (!validateAccount(req.body)) {
-    res.status(400).send("The account info is missing or not formatted correctly.");
-  } else {
-    writeToJSON(req.body);
-    console.log(req.body);
-    res.json({message: "Account info submitted"});
-  }
-});
-
-// PUT /api/users/profile-quest
-router.post('/profile-quest', (req, res) => { 
-  // account data from sign up page
-  const { first_name, last_name, email, password } = accountData;
-  // create code
   User.create({
-    first_name: first_name,
-    last_name: last_name,
-    email: email,
-    password: password,
-    book_genres: req.body.checkedArr
+    first_name: req.body.first_name,
+    last_name: req.body.last_name,
+    email: req.body.email,
+    password: req.body.password
   })
     .then(dbUserData => {
       req.session.save(() => {
         req.session.loggedIn = true;
         req.session.user_id = dbUserData.id;
         req.session.first_name = dbUserData.first_name;
-        req.session.last_name = dbUserData.last_name;
+        req.session.last_name = dbUserData.last_name
 
         res.json({user: dbUserData, message: "You are now logged in"});
       });
@@ -95,7 +77,7 @@ router.post('/profile-quest', (req, res) => {
     });
 });
 
-// POST /api/users/login
+// POST /api/user/login
 router.post('/login', (req, res) => {
   User.findOne({
     where: {
@@ -126,7 +108,7 @@ router.post('/login', (req, res) => {
 });
 
 // log out route
-// POST /api/users/logout
+// POST /api/user/logout
 router.post('/logout', (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy(() => {
