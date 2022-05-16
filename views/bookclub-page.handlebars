@@ -15,7 +15,91 @@
 
 
 <body class="d-flex flex-column min-vh-100 bg-gray">
-    <div class="jumbotron jumbotron-fluid">
+      <nav class="d-flex align-items-center fixed-top shadow bg-white nav-bar">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Search Container -->
+            <section class="col d-flex align-items-center">
+            <!-- BookHub logo -->
+            <a href="/user-feed"><i class="fa-solid fa-book-bookmark text-success fs-3rem"></i></a>
+            <!-- search bar -->
+            <div class="input-group ms-2">
+                <div class="input-group-text bg-warning border-warning search-shape search-size">
+                <i class="fas fa-search me-2 text-success"></i>
+                <input id="searchBar" type="text" 
+                class="border-0 bg-warning d-block m-0 fs-p8rem 
+                fw-bold text-success input-size" 
+                placeholder="Search BookHub"></input>
+                <button id="search-btn" class="btn rounded btn-success">Search</button>
+                </div>
+            </div>
+            </section>
+            <!-- profile-items -->
+            <section class="col d-flex align-items-center justify-content-end">
+            <!-- profile-picture -->
+            <div class="align-items-center justify-content-center d-none d-sm-flex">
+                <img src="/assets/images/nerd-emoji.png" class="profile-picture rounded-circle me-2"
+                alt="profile-picture" />
+                <h3 class="m-0">{{first_name}} {{last_name}}</h3>
+            </div>
+            <!-- user-menu -->
+            <div class="rounded-circle p-1 bg-gray d-flex 
+                align-items-center justify-content-center mx-2 user-dropdown-button"
+                type="button" id="secondMenu" data-bs-toggle="dropdown"
+                aria-expanded="false" data-bs-auto-close="outside">
+                <i class="fas fa-caret-down"></i>
+            </div>
+            <!-- user-menu dropdown -->
+            <ul class="dropdown-menu user-menu border-0 shadow p-3" aria-labelledby="secondMenu">
+                <!-- Profile -->
+                <li class="dropdown-item p-1 rounded d-flex" type="button">
+                <a href="/user-profile"> 
+                    <img src="/assets/images/nerd-emoji.png" alt="profile-picture" class="profile-picture rounded-circle me-2"/>
+                    <div>
+                        <p class="m-0">{{first_name}} {{last_name}}</p>
+                        <p class="m-0 text-muted">Your profile</p>
+                    </div>
+                </a>   
+                </li>
+                <!-- Friends -->
+                <li class="dropdown-item p-1 rounded" type="button">
+                <a href="#" class="d-flex align-items-center text-decoration-none text-dark">
+                    <div class="p-2">
+                    <i class="fa-solid fa-user-group"></i>
+                    </div>
+                    <div>
+                    <p class="m-0">Friends</p>
+                    </div>
+                </a>
+                </li>
+                <!-- Book Clubs -->
+                <li class="dropdown-item p-1 rounded" type="button">
+                <a href="/bookclub-page" class="d-flex align-items-center text-decoration-none text-dark">
+                    <div class="p-2">
+                    <i class="fa-solid fa-book"></i>
+                    </div>
+                    <div>
+                    <p class="m-0">Book Clubs</p>
+                    </div>
+                </a>
+                </li>
+                <!-- Log out -->
+                <li class="dropdown-item p-1 rounded" type="button">
+                <a id="logout" class="d-flex align-items-center text-decoration-none text-dark">
+                    <div class="p-2">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    </div>
+                    <div>
+                    <p class="m-0">Log Out</p>
+                    </div>
+                </a>
+                </li>
+            </ul>
+            </section>
+        </div>
+    </div>
+  </nav>
+    <div class="jumbotron jumbotron-fluid mt-5">
         <div class="container">
           <h1 class="display-4">Midnight Society</h1>
           <p class="lead">For all readers that are fans of Sci-Fi or Fantasy</p>
@@ -38,28 +122,28 @@
           </ol>
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img src="./assets/images/Dune.png" class="d-block w-100" alt="...">
+              <img src="/assets/images/Dune.png" class="d-block w-100" alt="...">
               <div class="carousel-caption d-none d-md-block">
                 <h5>Week 1</h5>
                 <p>La Casa De Bernarda es un drama que tiene muchos ejemplos de discurso feminista.</p>
               </div>
             </div>
             <div class="carousel-item">
-              <img src="./assets/images/WheelofTime.png" class="d-block w-100" alt="...">
+              <img src="/assets/images/WheelofTime.png" class="d-block w-100" alt="...">
               <div class="carousel-caption d-none d-md-block">
                 <h5>Week 2</h5>
                 <p> El drama es sobre una familia que es controlado y dirigido</p>
               </div>
             </div>
             <div class="carousel-item">
-              <img src="./assets/images/Nameofthewind.png" class="d-block w-100" alt="...">
+              <img src="/assets/images/Nameofthewind.png" class="d-block w-100" alt="...">
               <div class="carousel-caption d-none d-md-block">
                 <h5>Week 3</h5>
                 <p>Get out of here. Who said you could enter? You’ve left dirty footmarks already. (The woman leaves. The Servant goes on cleaning.) Polished floors, cupboards, pedestals, iron bed-frames,</p>
               </div>
             </div>
             <div class="carousel-item">
-                <img src="./assets/images/Thedarktower7.png" class="d-block w-100" alt="...">
+                <img src="/assets/images/Thedarktower7.png" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                   <h5>Week 4</h5>
                   <p>Grant rest to your servant Antonio María Benavides, and the crown of your sacred glory.</p>

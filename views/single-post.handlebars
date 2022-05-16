@@ -82,13 +82,14 @@
     </div>
 </nav>
 
-
-{{> post-info post}}
-
+<div class="container-fluid mt-5">
+    {{> post-info post}}
+    {{> comment-info comments}}
+</div>
 {{#if loggedIn}}
 <form class="comment-form">
     <div>
-        <textarea cols="30" rows="5" class="form-control border-0" name="comment-body" placeholder="Insert Comment..."></textarea>
+        <textarea cols="30" rows="5" class="form-control border-0 comment-area" name="comment-body" placeholder="Insert Comment..."></textarea>
     </div>
     <div>
         <button type="submit" class="btn btn-success w-100">Add Comment</button>
@@ -96,8 +97,7 @@
 </form>
 {{/if}}
 
-{{> comment-info comments}}
-
 {{#if loggedIn}}
 <script src="/js/comment.js"></script>
 {{/if}}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

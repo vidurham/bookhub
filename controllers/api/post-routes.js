@@ -3,7 +3,7 @@ const sequelize = require('../../config/config');
 const { Post, User, Comment, Vote} = require('../../models');
 const withAuth = require('../../utils/auth');
 
-// get all users
+// get all posts
 router.get('/', (req, res) => {
   console.log('======================');
   Post.findAll({

@@ -3,6 +3,8 @@ const profileQuest = require('../data/profile-quest.json')
 const sequelize = require('../config/config');
 const { User, Comment, Vote, Post, Bookclub } = require("../models/");
 const withAuth = require("../utils/auth");
+const fetch = require("node-fetch");
+
 
 // homepage
 router.get("/", (req, res) => {
@@ -124,11 +126,54 @@ router.get('/profile-quest', (req, res) => {
 });
 
 router.get('/bookclub-page', (req, res) => {
-  res.render('bookclub-page');
+  res.render('bookclub-page', { 
+    loggedIn: req.session.loggedIn,
+    id: req.session.user_id,
+    first_name: req.session.first_name,
+    last_name: req.session.last_name
+});;
+});
+
+router.get('/friends', (req, res) => {
+  res.render('sample-friends', { 
+    loggedIn: req.session.loggedIn,
+    id: req.session.user_id,
+    first_name: req.session.first_name,
+    last_name: req.session.last_name
+});;
 });
 
 router.get('/search-page', (req, res) => {
-    res.render('search-page')
-})
+  fetch(`http://openlibrary.org/search.json?title=the+hunger+games`, {
+    method: 'get',
+    headers: {
+      'Accept': 'application/json'
+    },
+  })
+  .then(res => res.json())
+  .then(data => {
+    var bookArr = [];
+      for (var i = 0; i < 20; i++) {
+        var bookCover = data.docs[i].cover_i;
+        var bookTitle = data.docs[i].title;
+        var bookAuthor = data.docs[i].author_name[0];
+        var bookKey = data.docs[i].key;
+        var book = {
+          cover: bookCover,
+          title: bookTitle,
+          author: bookAuthor,
+          key: bookKey
+        }
+        bookArr.push(book);
+      }
+      res.render('search-page', {
+        book: bookArr,
+        loggedIn: req.session.loggedIn,
+        id: req.session.user_id,
+        first_name: req.session.first_name,
+        last_name: req.session.last_name
+      });
+  });
+});
 
 module.exports = router;

@@ -87,18 +87,78 @@
   <!-- ++++++++++ Main ++++++++++ -->
   <div class="container-fluid">
     <div class="text-center container-fluid mt-5 col-12 row"> 
-        {{#each book}}
-        <div class="d-flex flex-wrap col-md-3">
-          <a href="https://openlibrary.org/{{this.key}}">
+        <div class="d-flex flex-wrap justify-content-around">
             <div class="card">
-              <img src="https://covers.openlibrary.org/b/id/{{this.cover}}-M.jpg" alt="">
-              <h1>{{this.title}}</h1>
-              <p>{{this.author}}</p>
+              <img src="/assets/images/cool-emoji.png" alt="Profile picture emoji">
+              <h1>John Williams</h1>
+              <p>Interested in: </p>
+              <button class="btn btn-primary">View Profile</button>
+              <button class="btn btn-success">Message Friend</button>
             </div>
-          </a>
-          <a href="/user-feed/1"><button class="btn btn-primary">Start Discussion</button></a>
+            <div class="card">
+              <img src="/assets/images/big-smile-emoji.png" alt="Profile picture emoji">
+              <h1>Tim Jones</h1>
+              <p>Interested in: </p>
+              <button class="btn btn-primary">View Profile</button>
+              <button class="btn btn-success">Message Friend</button>
+            </div>
+            <div class="card">
+              <img src="/assets/images/nervous-emoji.jpg" alt="Profile picture emoji">
+              <h1>Kim Halbert</h1>
+              <p>Interested in: </p>
+              <button class="btn btn-primary">View Profile</button>
+              <button class="btn btn-success">Message Friend</button>
+            </div>
+            <div class="card">
+              <img src="/assets/images/monocle-emoji.png" alt="Profile picture emoji">
+              <h1>Edward Trent</h1>
+              <p>Interested in: </p>
+              <button class="btn btn-primary">View Profile</button>
+              <button class="btn btn-success">Message Friend</button>
+            </div>
+            <div class="card">
+              <img src="/assets/images/laughing-emoji.png" alt="Profile picture emoji">
+              <h1>Leo Alexander</h1>
+              <p>Interested in: </p>
+              <button class="btn btn-primary">View Profile</button>
+              <button class="btn btn-success">Message Friend</button>
+            </div>
+            <div class="card">
+              <img src="/assets/images/smile-emoji.png" alt="Profile picture emoji">
+              <h1>Ahmad Patrick</h1>
+              <p>Interested in: </p>
+              <button class="btn btn-primary">View Profile</button>
+              <button class="btn btn-success">Message Friend</button>
+            </div>
+            <div class="card">
+              <img src="/assets/images/old-emoji.png" alt="Profile picture emoji">
+              <h1>John Williams</h1>
+              <p>Interested in: </p>
+              <button class="btn btn-primary">View Profile</button>
+              <button class="btn btn-success">Message Friend</button>
+            </div>
+            <div class="card">
+              <img src="/assets/images/wink-emoji.png" alt="Profile picture emoji">
+              <h1>Cindy Lewis</h1>
+              <p>Interested in: </p>
+              <button class="btn btn-primary">View Profile</button>
+              <button class="btn btn-success">Message Friend</button>
+            </div>
+            <div class="card">
+              <img src="/assets/images/tired-emoji.jpg" alt="Profile picture emoji">
+              <h1>Jack Danielson</h1>
+              <p>Interested in: </p>
+              <button class="btn btn-primary">View Profile</button>
+              <button class="btn btn-success">Message Friend</button>
+            </div>
+            <div class="card">
+              <img src="/assets/images/look-emoji.jpg" alt="Profile picture emoji">
+              <h1>Wendy Cane</h1>
+              <p>Interested in: </p>
+              <button class="btn btn-primary">View Profile</button>
+              <button class="btn btn-success">Message Friend</button>
+            </div>
         </div>
-        {{/each}}
     </div>
   </div>
 
