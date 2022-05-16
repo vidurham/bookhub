@@ -72,10 +72,11 @@ router.post('/profile-quest', (req, res) => {
   const { first_name, last_name, email, password } = accountData.accountData;
   // create code
   User.create({
-    first_name: req.body.first_name,
-    last_name: req.body.last_name,
-    email: req.body.email,
-    password: req.body.password
+    first_name: first_name,
+    last_name: last_name,
+    email: email,
+    password: password,
+    book_genres: req.body.checkedArr
   })
     .then(dbUserData => {
       req.session.save(() => {
