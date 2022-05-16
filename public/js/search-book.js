@@ -1,13 +1,14 @@
-const search = document.querySelector('input[id="searchBar"]').value;
-const query = search.split(" ").join("+");
+
 
 var searchByTitle = function(event) {
     event.preventDefault();
-    if (search) {
+    const search = document.querySelector('input[id="searchBar"]').value;
+    const query = search.split(" ").join("+");
+    if (query) {
         fetch('/api/search', {
             method: 'POST',
             body: JSON.stringify({
-                search
+                query
             }),
             headers: { 'Content-Type': 'application/json' }
             })

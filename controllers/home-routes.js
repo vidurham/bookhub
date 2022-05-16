@@ -4,6 +4,7 @@ const sequelize = require('../config/config');
 const { User, Comment, Vote, Post, Bookclub } = require("../models/");
 const withAuth = require("../utils/auth");
 const fetch = require("node-fetch");
+const search = require('../data/search.json')
 
 
 // homepage
@@ -144,7 +145,8 @@ router.get('/friends', (req, res) => {
 });
 
 router.get('/search-page', (req, res) => {
-  fetch(`http://openlibrary.org/search.json?title=the+hunger+games`, {
+  const searchQuery = search.search.query
+  fetch(`http://openlibrary.org/search.json?q=` + searchQuery, {
     method: 'get',
     headers: {
       'Accept': 'application/json'
@@ -156,7 +158,7 @@ router.get('/search-page', (req, res) => {
       for (var i = 0; i < 20; i++) {
         var bookCover = data.docs[i].cover_i;
         var bookTitle = data.docs[i].title;
-        var bookAuthor = data.docs[i].author_name[0];
+        var bookAuthor = data.docs[i].author_name;
         var bookKey = data.docs[i].key;
         var book = {
           cover: bookCover,
