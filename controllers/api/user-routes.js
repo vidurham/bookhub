@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const { DataTypes } = require('sequelize/types');
 const { User, Comment, Post, Vote } = require('../../models');
 
 // get all users
@@ -53,7 +54,7 @@ router.get('/:id', (req, res) => {
     });
 });
 
-//POST /api/user/
+//POST /api/users/
 router.post('/', (req, res) => {
   User.create({
     first_name: req.body.first_name,
@@ -77,7 +78,30 @@ router.post('/', (req, res) => {
     });
 });
 
-// POST /api/user/login
+// POST /api/users/profile-quest
+router.post('/profile-quest', (req, res) => {
+  let checkedArr = req.body.checkedArr
+  await User.addColumn('user', 'book_genres', {type: DataTypes.STRING})
+    .then(dbUserData => {
+      console.log(dbUserData);
+    })
+    // .then(dbUserData => {
+    //   req.session.save(() => {
+    //     req.session.loggedIn = true;
+    //     req.session.user_id = dbUserData.id;
+    //     req.session.first_name = dbUserData.first_name;
+    //     req.session.last_name = dbUserData.last_name
+
+    //     res.json({user: dbUserData, message: "You are now logged in"});
+    //   });
+    // })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+// POST /api/users/login
 router.post('/login', (req, res) => {
   User.findOne({
     where: {
@@ -108,7 +132,7 @@ router.post('/login', (req, res) => {
 });
 
 // log out route
-// POST /api/user/logout
+// POST /api/users/logout
 router.post('/logout', (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy(() => {
