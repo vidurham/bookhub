@@ -117,7 +117,8 @@ router.get('/user-profile', (req, res) => {
     loggedIn: req.session.loggedIn,
     id: req.session.user_id,
     first_name: req.session.first_name,
-    last_name: req.session.last_name
+    last_name: req.session.last_name,
+    book_genres: req.session.book_genres
 });
 });
 

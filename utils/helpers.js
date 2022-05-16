@@ -25,6 +25,16 @@ module.exports = {
     return out + "</ul>"
   },
 
+  genres: (book_genres) => {
+    const genresArr = book_genres.split(';')
+    let out;
+    for (let i = 0; i < genresArr.length; i++){
+      out = `<span class="badge badge-pill badge-warning">${genreArr[i]}</span>`
+    };
+
+    return out
+  },
+
   format_date: date => {
     return `${new Date(date).getMonth() + 1}/${new Date(date).getDate()}/${new Date(date).getFullYear()}`;
   },

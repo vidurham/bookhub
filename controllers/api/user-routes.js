@@ -84,6 +84,7 @@ router.post('/profile-quest', (req, res) => {
         req.session.user_id = dbUserData.id;
         req.session.first_name = dbUserData.first_name;
         req.session.last_name = dbUserData.last_name;
+        req.session.book_genres = req.body.checkedArr;
 
         res.json({user: dbUserData, message: "You are now logged in"});
       });
