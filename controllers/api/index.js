@@ -4,13 +4,11 @@ const userRoutes = require('./user-routes.js');
 const postRoutes = require('./post-routes');
 const commentRoutes = require('./comment-routes');
 const bookclubRoutes = require('./bookclub-routes');
-const searchRoutes = require('./search-routes');
 
 router.use('/users', userRoutes);
 router.use('/posts', postRoutes);
 router.use('/comments', commentRoutes);
 router.use('/bookclub', bookclubRoutes);
-router.use('/search', searchRoutes);
 
 
 module.exports = router;

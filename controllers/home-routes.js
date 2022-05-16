@@ -4,7 +4,6 @@ const sequelize = require('../config/config');
 const { User, Comment, Vote, Post, Bookclub } = require("../models/");
 const withAuth = require("../utils/auth");
 const fetch = require("node-fetch");
-const search = require('../data/search.json')
 
 
 // homepage
@@ -146,7 +145,7 @@ router.get('/friends', (req, res) => {
 });
 
 router.get('/search-page', (req, res) => {
-  const searchQuery = search.search.query
+  const searchQuery = req.query.q
   fetch(`http://openlibrary.org/search.json?q=` + searchQuery, {
     method: 'get',
     headers: {
@@ -156,11 +155,26 @@ router.get('/search-page', (req, res) => {
   .then(res => res.json())
   .then(data => {
     var bookArr = [];
+    var bookCover;
+    var bookTitle;
+    var bookAuthor;
+    var bookKey;
+    if (data){
       for (var i = 0; i < 20; i++) {
-        var bookCover = data.docs[i].cover_i;
-        var bookTitle = data.docs[i].title;
-        var bookAuthor = data.docs[i].author_name;
-        var bookKey = data.docs[i].key;
+        if(data.docs[i]){
+          if (data.docs[i].cover_i){
+            bookCover = data.docs[i].cover_i;
+          };
+          if (data.docs[i].title){
+            bookTitle = data.docs[i].title;
+          };
+          if (data.docs[i].author_name){
+            bookAuthor = data.docs[i].author_name;
+          };
+          if (data.docs[i].key){
+            bookKey = data.docs[i].key;
+          };
+        };
         var book = {
           cover: bookCover,
           title: bookTitle,
@@ -169,13 +183,16 @@ router.get('/search-page', (req, res) => {
         }
         bookArr.push(book);
       }
-      res.render('search-page', {
-        book: bookArr,
-        loggedIn: req.session.loggedIn,
-        id: req.session.user_id,
-        first_name: req.session.first_name,
-        last_name: req.session.last_name
-      });
+    } else {
+      bookArr = "No titles found"
+    }
+    res.render('search-page', {
+      book: bookArr,
+      loggedIn: req.session.loggedIn,
+      id: req.session.user_id,
+      first_name: req.session.first_name,
+      last_name: req.session.last_name
+    });
   });
 });
 
