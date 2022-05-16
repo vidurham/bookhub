@@ -62,7 +62,6 @@ router.post('/', (req, res) => {
     res.status(400).send("The account info is missing or not formatted correctly.");
   } else {
     writeToJSON(req.body);
-    console.log(req.body);
     res.json({message: "Account info submitted"});
   }
 });
@@ -70,7 +69,8 @@ router.post('/', (req, res) => {
 // PUT /api/users/profile-quest
 router.post('/profile-quest', (req, res) => { 
   // account data from sign up page
-  const { first_name, last_name, email, password } = accountData;
+  const { first_name, last_name, email, password } = accountData.accountData;
+  console.log(accountData);
   // create code
   User.create({
     first_name: first_name,

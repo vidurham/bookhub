@@ -1,5 +1,5 @@
 //(PLACEHOLDER) function to gather form data and call our "POST /api/user" express route
-const signupFormHandler = async function (event) {
+const signupFormHandler = function (event) {
   event.preventDefault();
 
   const first_name = document.querySelector('#firstname-signup').value.trim();
