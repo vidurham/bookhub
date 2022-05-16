@@ -1,7 +1,6 @@
 const router = require('express').Router();
 const { User, Comment, Post, Vote } = require('../../models');
 const { writeToJSON, validateAccount} = require('../../lib/account-data');
-const accountData = require('../../data/account-data');
 const { response } = require('express');
 
 // get all users
