@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const { response } = require('express');
 const { DataTypes } = require('sequelize/types');
 const { User, Comment, Post, Vote } = require('../../models');
 
@@ -79,22 +80,14 @@ router.post('/', (req, res) => {
 });
 
 // POST /api/users/profile-quest
-router.post('/profile-quest', (req, res) => {
-  let checkedArr = req.body.checkedArr
-  await User.update({ book_genres: checkedArr })
-    .then(dbUserData => {
-      console.log(dbUserData);
+router.post('/profile-quest', (req, res) => { 
+  await User.update({ book_genres: req.body.checkedArr })
+    .then(response => {
+      req.session.save(() => {
+        req.session.book_genres = req.body.checkedArr.join(';');
+        res.json({user: response, message: "Profile updated!"});
+      });
     })
-    // .then(dbUserData => {
-    //   req.session.save(() => {
-    //     req.session.loggedIn = true;
-    //     req.session.user_id = dbUserData.id;
-    //     req.session.first_name = dbUserData.first_name;
-    //     req.session.last_name = dbUserData.last_name
-
-    //     res.json({user: dbUserData, message: "You are now logged in"});
-    //   });
-    // })
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
