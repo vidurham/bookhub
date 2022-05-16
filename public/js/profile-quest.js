@@ -10,7 +10,7 @@ function collectChecks(event){
 
   if (checkedArr.length > 0) {
     fetch('/api/users/profile-quest', {
-    method: 'PUT',
+    method: 'POST',
     body: JSON.stringify({
         checkedArr
     }),
