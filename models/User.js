@@ -39,7 +39,10 @@ User.init(
     },
     book_genres: {
       type: DataTypes.STRING,
-      allowNull: true
+      allowNull: true,
+      set(valueInserted) {
+        this.setDataValue('book_genres', valueInserted.join(';'))
+      }
     }
   },
   {
