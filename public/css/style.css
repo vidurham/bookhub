@@ -201,7 +201,7 @@
 }
 
 /*Book Club Page */
-.d-block w-100{ 
+.carousel-item img{ 
   width: 200px;
   height: 250px;
   object-fit: contain;
