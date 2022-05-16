@@ -25,6 +25,21 @@ module.exports = {
     return out + "</ul>"
   },
 
+  genres: (book_genres) => {
+    let out = `<div class="card w-100">
+    <h5 class="card-header">Favorite Genres</h5> 
+    <div class="card-body">`
+
+
+    for (let i = 0; i < book_genres.length; i++){
+      console.log(book_genres[i]);
+      out = out + `<span class="badge badge-pill badge-success bg-success m-1">${book_genres[i]}</span>`
+    };
+
+    return out + `</div>
+              </div>`
+  },
+
   format_date: date => {
     return `${new Date(date).getMonth() + 1}/${new Date(date).getDate()}/${new Date(date).getFullYear()}`;
   },
