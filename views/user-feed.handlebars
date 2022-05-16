@@ -1,0 +1,251 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>BookHub-Homepage</title>
+  </head>
+  <body class="feed-background bg-gray">
+    <!-- +++++++++ Nav bar +++++++++ -->
+    <nav class="d-flex align-items-center fixed-top shadow bg-white nav-bar">
+      <div class="container-fluid">
+          <div class="row">
+              <!-- Search Container -->
+              <section class="col d-flex align-items-center">
+              <!-- BookHub logo -->
+              <a href="/user-feed"><i class="fa-solid fa-book-bookmark text-success fs-3rem"></i></a>
+              <!-- search bar -->
+              <div class="input-group ms-2">
+                  <div class="input-group-text bg-warning border-warning search-shape search-size">
+                  <i class="fas fa-search me-2 text-success"></i>
+                  <input id="searchBar" type="text" 
+                  class="border-0 bg-warning d-block m-0 fs-p8rem 
+                  fw-bold text-success input-size" 
+                  placeholder="Search BookHub"></input>
+                  <button id="search-btn" class="btn rounded btn-success">Search</button>
+                  </div>
+              </div>
+              </section>
+              <!-- profile-items -->
+              <section class="col d-flex align-items-center justify-content-end">
+              <!-- profile-picture -->
+              <div class="align-items-center justify-content-center d-none d-sm-flex">
+                  <img src="/assets/images/nerd-emoji.png" class="profile-picture rounded-circle me-2"
+                  alt="profile-picture" />
+                  <h3 class="m-0">{{first_name}} {{last_name}}</h3>
+              </div>
+              <!-- user-menu -->
+              <div class="rounded-circle p-1 bg-gray d-flex 
+                  align-items-center justify-content-center mx-2 user-dropdown-button"
+                  type="button" id="secondMenu" data-bs-toggle="dropdown"
+                  aria-expanded="false" data-bs-auto-close="outside">
+                  <i class="fas fa-caret-down"></i>
+              </div>
+              <!-- user-menu dropdown -->
+              <ul class="dropdown-menu user-menu border-0 shadow p-3" aria-labelledby="secondMenu">
+                  <!-- Profile -->
+                  <li class="dropdown-item p-1 rounded d-flex" type="button">
+                  <a href="/user-profile"> 
+                      <img src="/assets/images/nerd-emoji.png" alt="profile-picture" class="profile-picture rounded-circle me-2"/>
+                      <div>
+                          <p class="m-0">{{first_name}} {{last_name}}</p>
+                          <p class="m-0 text-muted">Your profile</p>
+                      </div>
+                  </a>   
+                  </li>
+                  <!-- Friends -->
+                  <li class="dropdown-item p-1 rounded" type="button">
+                  <a href="/friends" class="d-flex align-items-center text-decoration-none text-dark">
+                      <div class="p-2">
+                      <i class="fa-solid fa-user-group"></i>
+                      </div>
+                      <div>
+                      <p class="m-0">Friends</p>
+                      </div>
+                  </a>
+                  </li>
+                  <!-- Book Clubs -->
+                  <li class="dropdown-item p-1 rounded" type="button">
+                  <a href="/bookclub-page" class="d-flex align-items-center text-decoration-none text-dark">
+                      <div class="p-2">
+                      <i class="fa-solid fa-book"></i>
+                      </div>
+                      <div>
+                      <p class="m-0">Book Clubs</p>
+                      </div>
+                  </a>
+                  </li>
+                  <!-- Log out -->
+                  <li class="dropdown-item p-1 rounded" type="button">
+                  <a id="logout" class="d-flex align-items-center text-decoration-none text-dark">
+                      <div class="p-2">
+                      <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                      </div>
+                      <div>
+                      <p class="m-0">Log Out</p>
+                      </div>
+                  </a>
+                  </li>
+              </ul>
+              </section>
+          </div>
+      </div>
+    </nav>
+    <!-- ++++++++++ Main ++++++++++ -->
+    <div class="container-fluid">
+      <div class="row justify-content-evenly">
+        <!-- ++++++++++ Left side ++++++++++ -->
+        <div class="col-12 col-lg-3">
+          <div class="left-bar-sizing d-none d-lg-block h-100 w-100 fixed-top overflow-hidden">
+            <ul class="navbar-nav mt-4 ms-3 d-flex flex-column pb-5 mb-5 pt-5">
+              <!-- profile-picture -->
+              <li class="dropdown-item p-1 rounded">
+                <a href="#" class="d-flex align-items-center text-decoration-none text-dark">
+                  <div class="p-2">
+                    <img src="/assets/images/nerd-emoji.png" alt="profile-picture" class="rounded-circle me-2 profile-picture"/>
+                  </div>
+                  <div>
+                    <p class="m-0">{{first_name}} {{last_name}}</p>
+                  </div>
+                </a>
+              </li>
+              <!-- Friends -->
+              <li class="dropdown-item p-1 rounded">
+                <a href="/friends" class="d-flex align-items-center text-decoration-none text-dark">
+                  <div class="p-2">
+                    <i class="fa-solid fa-user-group"></i>
+                  </div>
+                  <div>
+                    <p class="m-0">Friends</p>
+                  </div>
+                </a>
+              </li>
+              <!-- Book Clubs -->
+              <li class="dropdown-item p-1 rounded">
+                <a href="/bookclub-page" class="d-flex align-items-center text-decoration-none text-dark">
+                  <div class="p-2">
+                    <i class="fa-solid fa-book"></i>
+                  </div>
+                  <div>
+                    <p class="m-0">Book Clubs</p>
+                  </div>
+                </a>
+              </li>
+          </div>
+        </div>
+        <!-- ++++++++++ Feed ++++++++++ -->
+        <div class="col-12 col-lg-6 pb-5">
+          <div class="feed-sizing d-flex flex-column justify-content-center w-100 mx-auto">
+            <!-- discussions -->
+            <div class="mt-5 d-flex justify-content-between position-relative">
+              <!-- create a discussion button -->
+              <div class=" mx-1 bg-white rounded discussion create-discussion" type="button">
+                <img src="/assets/images/book-stack.png" class="card-img-top" alt="discussion posts"
+                  style="min-height: 125px; object-fit: cover"/>
+                <div class="d-flex align-items-center justify-content-center position-relative"
+                  style="min-height: 65px">
+                  <p class="mb-0 text-center fs-p8rem fw-bold">Create A Discussion</p>
+                  <div class="position-absolute top-0 start-50 translate-middle">
+                    <i class="fas fa-plus-circle fs-3 text-success bg-white p-1 rounded-circle"></i>
+                  </div>
+                </div>
+              </div>
+              <!-- discussion 2 -->
+              <div class="rounded mx-1 discussion" type="button">
+                <img src="/assets/images/history-book.png" class="card-img-top rounded"
+                  alt="discussion posts" style="min-height: 190px; object-fit: cover"/>
+              </div>
+              <!-- discussion 3 -->
+              <div class="rounded mx-1 discussion" type="button">
+                <img src="/assets/images/stephen-king-memoir.png" class="card-img-top rounded" 
+                alt="discussion posts" style="min-height: 190px; object-fit: cover"/>
+              </div>
+              <!-- discussion 4 -->
+              <div class="rounded mx-1 discussion" type="button">
+                <img src="/assets/images/coders.png" class="card-img-top rounded"
+                alt="discussion posts" style="min-height: 190px; object-fit: cover"/>
+              </div>
+              <!-- discussion 5 -->
+              <div class="d-none d-lg-block rounded mx-1 discussion" type="button">
+                <img src="/assets/images/canterbury-tales.png" class="card-img-top rounded" 
+                alt="discussion posts" style="min-height: 190px; object-fit: cover"/>
+              </div>
+              <!-- discussion 6 -->
+              <div class="d-none d-lg-block rounded mx-1 discussion" type="button">
+                <img src="/assets/images/deep-work.png" class="card-img-top rounded"
+                  alt="discussion posts" style="min-height: 190px; object-fit: cover"/>
+              </div>
+            </div>
+            <!-- create post -->
+            <div class="bg-white p-3 mt-3 rounded border shadow">
+              <!-- profile-picture -->
+              <div class="d-flex" type="button">
+                <div class="p-1">
+                  <img src="/assets/images/nerd-emoji.png" alt="profile-picture" class="rounded-circle me-2 profile-picture"/>
+                </div>
+                <input type="text" class="form-control border-0 bg-white pointer"
+                  disabled placeholder="Share your thoughts on a book."
+                  data-bs-toggle="modal" data-bs-target="#postModal"/>
+              </div>
+              <!-- create post modal -->
+              <div class="modal fade" id="postModal" tabindex="-1"
+                aria-labelledby="createModalLabel" aria-hidden="true" data-bs-backdrop="false">
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+                    <!-- head -->
+                    <div class="modal-header align-items-center">
+                      <h5 class="text-dark text-center w-100 m-0">Create Post</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <!-- body -->
+                  <form class="new-post-form">
+                    <div class="modal-body">
+                      <div class="my-1 p-1">
+                        <div class="d-flex flex-column">
+                          <!-- name -->
+                          <div class="d-flex align-items-center">
+                            <div class="p-2">
+                              <img src="/assets/images/nerd-emoji.png" alt="from fb" 
+                              class="create-post-modal rounded-circle"/>
+                            </div>
+                            <div>
+                              <p class="m-0 fw-bold">{{first_name}} {{last_name}}</p>
+                            </div>
+                          </div>
+                          <!-- text -->
+                            <input type="text" name="post-title" id="post-title" placeholder="Book Title">
+                            <div>
+                              <textarea cols="30" rows="5" class="form-control border-0" id="post-content" name="post-content" placeholder="Content"></textarea>
+                            </div> 
+                        </div>
+                      </div>
+                    <!-- end -->
+                    </div>
+                    <!-- footer -->
+                    <div class="modal-footer">
+                      <button type="submit" class="btn btn-success w-100">
+                        Post
+                      </button>
+                    </div>
+                  </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {{#each posts as |post|}}
+            {{> post-info post}}
+          {{/each}}
+          </div>
+        </div>
+        <!-- ++++++++++ Right side ++++++++++ -->
+        <div class="col-12 col-lg-3"></div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="/js/logout.js"></script>
+    <script src="/js/add-post.js"></script>
+    <script src="/js/search-book.js"></script>
+  </body>
+</html>

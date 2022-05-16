@@ -1,0 +1,232 @@
+:root{
+  --white: #FFFFFF;
+  --trans-white: #ffffff83;
+  --gray: #ebecec;
+}
+::placeholder{
+  color: #198754;
+}
+
+/* LOGIN PAGE */
+/* Utility classes */
+.bg-white {
+  background-color: var(--white);
+}
+.bg-gray{
+  background-color: var(--gray);
+}
+
+.fs-4rem {
+  font-size: 4rem;
+}
+.fs-3rem {
+  font-size: 3rem;
+}
+.fs-p8rem {
+  font-size: 0.8rem;
+}
+
+.flex-col-center{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* END utility classes */
+
+/* content left of login form */
+.books-div{
+  height: 275px;
+  width: fit-content;
+  background-size: cover;
+  background-image: url(../assets/images/books-falling.png);
+}
+.heading{
+  width: fit-content;
+}
+.login-desc{
+  font-weight:500;
+  background-color: var(--trans-white);
+}
+/* END LOGIN PAGE */
+
+/* HOME/FEED PAGE */
+/* Utility classes */
+.profile-picture{
+  width: 38px; 
+  height: 38px; 
+  object-fit: cover;
+}
+.pointer {
+  cursor: pointer;
+}
+/* END of Utility classes */
+
+.nav-bar{
+  min-height: 60px; 
+  z-index: 5;
+}
+
+/* search bar */
+.search-size{
+  min-height: 40px;
+}
+.search-shape{
+  border-radius: 500px;
+}
+.input-size{
+  width: 115px;
+}
+
+/* user menu (far right of nav bar) */
+.user-dropdown-button{
+  width: 38px;
+  height: 38px;
+}
+.user-menu{
+  width: 20em;
+}
+
+/* content sizing */
+.left-bar-sizing{
+  max-width: 250px; 
+  z-index: 4;
+}
+.feed-sizing{
+  padding-top: 56px; 
+  max-width: 680px;
+}
+.likes-sizing{
+  height: 50px; 
+  z-index: 4;
+}
+
+/* discussions*/
+.discussion-div{
+  width: 6em; 
+  height: 190px;
+}
+.discussion{
+  width: 6em; 
+  min-height: 190px; 
+  object-fit: cover;
+}
+.discussion:hover {
+  opacity: 0.8;
+}
+
+.create-post-modal{
+  width: 38px;
+  height: 38px;
+}
+
+.comments{
+  width: 38px;
+  height: 38px;
+  object-fit: cover;
+}
+/* comment accordion for posts */
+.post__comment .accordion-button::after {
+  margin-left: 0 ;
+  display: none ;
+}
+.post__comment .accordion-button:hover {
+  background: transparent;
+  border-color: transparent;
+}
+.post__comment .accordion-button:not(.collapsed) {
+  background: transparent;
+}
+.post__comment .accordion-button:not(.collapsed) {
+  box-shadow: none;
+}
+/* END of comment accordions */
+/* END OF HOME/FEED PAGE */
+
+/* MEDIA QUERIES */
+/* styles take affect from the screen size defined 
+*  and up from it */
+@media (min-width: 992px){
+  /* LOGIN PAGE */
+  /* main div that holds all login content */
+  .login-container{
+    margin-top: 120px;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  /* content left of login form*/
+  .books-div{
+    height: 550px;
+    width: 600px;
+    margin-right: 8%;
+  }
+  .header-pos{
+    margin-left: 60%;
+    margin-bottom: 17%;
+  }
+  .login-desc{
+    border: none;
+    background-color: #FFFFFF;
+  }
+  /* END OF LOGIN PAGE */
+
+  /* HOME/FEED PAGE */
+  .search-size{
+    min-width: 230px;
+  }
+  .input-size{
+    width: 175px;
+  }
+  /* END OF HOME/FEED PAGE */
+}
+
+
+/*User Profile Page*/
+.class h2{
+  font-size: 10px;
+}
+
+.social-media{
+  display:flex;
+  list-style: none;
+  justify-content:center;
+  padding:5px 1px 1px 1px;
+}
+
+.social-media li{
+  padding:5px;
+  color:#112cc7;
+  font-size:16px;
+  display: inline-block;
+}
+
+/*Book Club Page */
+.carousel-inner img{
+  width: 50px;
+  height: 75px;
+  object-fit: contain;
+}
+
+.bookcard{
+  flex: 0 1 22%;
+  text-align: center;
+  margin: 8px;
+  width: 15rem;
+  padding: 5px;
+  border: 3px solid black;
+}
+
+.bookcard img {
+  height: 15vw;
+  width: 100%;
+}
+
+.bookcard:hover {
+  border-color: limegreen;
+  box-shadow: 0px 0px 10px 2px limegreen;
+}
+
+.comment-area {
+  border-color: limegreen;
+  box-shadow: 0px 0px 10px 2px limegreen;
+}

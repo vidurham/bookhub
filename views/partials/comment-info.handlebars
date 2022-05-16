@@ -1,0 +1,27 @@
+<!-- comment -->
+<div class="d-flex align-items-center my-1">
+<!-- profile-picture -->
+    <img src="/assets/images/nerd-emoji.png" alt="profile-picture" 
+        class="rounded-circle me-2 comments"/>
+    <!-- text content div -->
+    <div class="p-3 rounded comment__input w-100">
+        <div class="d-flex justify-content-end">
+        <!-- icon -->
+        <i class="fas fa-ellipsis-h text-blue pointer" id="commentEditMenu"
+            data-bs-toggle="dropdown" aria-expanded="false"></i>
+        <!-- edit menu -->
+        <ul class="dropdown-menu border-0 shadow" aria-labelledby="commentEditMenu" >
+            <li class="d-flex align-items-center">
+            <a class="dropdown-item d-flex justify-content-around
+                align-items-center fs-p8rem" href="#">Edit Comment</a>
+            </li>
+            <li class="d-flex align-items-center">
+            <a class="dropdown-item d-flex justify-content-around
+                align-items-center fs-p8rem" href="#">Delete Comment</a>
+            </li>
+        </ul>
+        </div>
+        <p class="fw-bold m-0">{{user.first_name}} {{user.last_name}}</p>
+        <p class="m-0 fs-p8rem bg-white p-2 rounded">{{comment_text}}</p>
+    </div>
+</div>
