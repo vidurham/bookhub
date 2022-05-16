@@ -1,6 +1,4 @@
 const router = require('express').Router();
-const { response } = require('express');
-const { DataTypes } = require('sequelize/types');
 const { User, Comment, Post, Vote } = require('../../models');
 
 // get all users
@@ -81,7 +79,7 @@ router.post('/', (req, res) => {
 
 // POST /api/users/profile-quest
 router.post('/profile-quest', (req, res) => { 
-  await User.update({ book_genres: req.body.checkedArr })
+  User.update({ book_genres: req.body.checkedArr })
     .then(response => {
       req.session.save(() => {
         req.session.book_genres = req.body.checkedArr.join(';');
