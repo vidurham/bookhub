@@ -77,12 +77,15 @@ router.post('/', (req, res) => {
     });
 });
 
-// POST /api/users/profile-quest
-router.post('/profile-quest', (req, res) => { 
+// PUT /api/users/profile-quest
+router.put('/profile-quest', (req, res) => { 
+  // from profile-quest.js in public
+  console.log(req.body.checkedArr);
   User.update({ book_genres: req.body.checkedArr })
     .then(response => {
       req.session.save(() => {
         req.session.book_genres = req.body.checkedArr.join(';');
+        console.log(req.session.book_genres, req.body, "HELLLLLLLLLLLLLOOOO!!!!!");
         res.json({user: response, message: "Profile updated!"});
       });
     })
