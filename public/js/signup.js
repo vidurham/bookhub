@@ -1,5 +1,3 @@
-const res = require("express/lib/response");
-
 //(PLACEHOLDER) function to gather form data and call our "POST /api/user" express route
 const signupFormHandler = async function (event) {
   event.preventDefault();
@@ -10,7 +8,7 @@ const signupFormHandler = async function (event) {
   const password = document.querySelector('#password-signup').value.trim();
 
   if (first_name && last_name && email && password) {
-    const response = await fetch('/api/users', {
+    fetch('/api/users', {
     method: 'POST',
     body: JSON.stringify({
         first_name,
@@ -21,6 +19,7 @@ const signupFormHandler = async function (event) {
     headers: { 'Content-Type': 'application/json' }
     })
     .then( response => {
+      console.log(response);
       if (response.ok) {
         document.location.replace('/profile-quest');
       } else {
