@@ -81,7 +81,15 @@ router.post('/', (req, res) => {
 // POST /api/users/profile-quest
 router.post('/profile-quest', (req, res) => {
   let checkedArr = req.body.checkedArr
-  await User.addColumn('user', 'book_genres', {type: DataTypes.STRING})
+  await User.define('user', {
+    book_genres: {
+      type: Sequelize.STRING,
+      allowNull: true,
+      set(checkedArr) {
+        this.setDataValue('book_genres', checkedArr.join(';'))
+      }
+    }
+  })
     .then(dbUserData => {
       console.log(dbUserData);
     })

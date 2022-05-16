@@ -36,6 +36,10 @@ User.init(
       validate: {
         len: [4]
       }
+    },
+    book_genres: {
+      type: DataTypes.STRING,
+      allowNull: true
     }
   },
   {
