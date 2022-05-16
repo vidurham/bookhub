@@ -70,7 +70,6 @@ router.post('/', (req, res) => {
 router.post('/profile-quest', (req, res) => { 
   // account data from sign up page
   const { first_name, last_name, email, password } = accountData.accountData;
-  console.log(accountData);
   // create code
   User.create({
     first_name: first_name,
