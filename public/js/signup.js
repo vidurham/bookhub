@@ -1,3 +1,5 @@
+const res = require("express/lib/response");
+
 //(PLACEHOLDER) function to gather form data and call our "POST /api/user" express route
 const signupFormHandler = async function (event) {
   event.preventDefault();
@@ -8,23 +10,24 @@ const signupFormHandler = async function (event) {
   const password = document.querySelector('#password-signup').value.trim();
 
   if (first_name && last_name && email && password) {
-      const response = await fetch('/api/users', {
-      method: 'POST',
-      body: JSON.stringify({
-          first_name,
-          last_name,
-          email,
-          password
-      }),
-      headers: { 'Content-Type': 'application/json' }
-      });
-
+    const response = await fetch('/api/users', {
+    method: 'POST',
+    body: JSON.stringify({
+        first_name,
+        last_name,
+        email,
+        password
+    }),
+    headers: { 'Content-Type': 'application/json' }
+    })
+    .then( response => {
       if (response.ok) {
-      document.location.replace('/profile-quest');
+        document.location.replace('/profile-quest');
       } else {
-      alert(response.statusText);
-      }
-  }
-}
+        alert(response.statusText);
+      };
+    });
+  };
+};
 
 document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);
