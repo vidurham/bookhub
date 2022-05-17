@@ -30,3 +30,6 @@ View discussion post on the user feed page
 ![user feed page](public/assets/images/user-feed-page.png)
 Search for books by title or author using the search bar
 ![search result page](public/assets/images/search-page.png)
+
+## link
+ [BookHub sign up page](https://bookhub-project-2.herokuapp.com/ "BookHub")
