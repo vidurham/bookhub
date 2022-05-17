@@ -3,18 +3,14 @@
 ## Table Of Content
 - [Description](#description)
 - [Usage](#usage)
-- [Testing](#testing)
-- [Installation](#installation)
 - [Features](#features)
-- [Contribute](#contribute)
-- [Questions](#questions)
-- [License](#license)
 - [Screenshots](#screenshots)
+- [Website Link](#website-link)
 
 ## Description 
 A social media platform to connect with book lovers to discuss books
 
-## How to use the website
+## Usage
 Sign up for an account and start discussing the books you love! 
 
 ## Features
@@ -31,5 +27,5 @@ View discussion post on the user feed page
 Search for books by title or author using the search bar
 ![search result page](public/assets/images/search-page.png)
 
-## link
- [BookHub sign up page](https://bookhub-project-2.herokuapp.com/ "BookHub")
+## Website-link
+ [BookHub](https://bookhub-project-2.herokuapp.com/ "BookHub sign up page")
