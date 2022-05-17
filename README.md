@@ -4,7 +4,6 @@
 - [Description](#description)
 - [Usage](#usage)
 - [Features](#features)
-- [Questions](#questions)
 - [Screenshots](#screenshots)
 - [Website Link](#website-link)
 
